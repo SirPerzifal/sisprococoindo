@@ -1,0 +1,595 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white !important;
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100vh; /* Sidebar memiliki tinggi penuh layar */
+    width: 235px;
+    background-color: #104367;
+    padding-top: 10px;
+    position: fixed;
+    overflow-y: auto; /* Aktifkan scroll secara vertikal */
+}
+
+/* Gaya Logo Sidebar */
+.sidebar-logo-container {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 15px;
+}
+
+.sidebarlogo {
+    width: 30%;
+    height: auto;
+    margin-top: 10px;
+    padding: 0;
+    transform: translateX(-5px);
+    transform: translateY(-12px);
+}
+
+.sidebar-logo-container p {
+    color: white;
+    font-weight: 400;
+    margin-left: 20px;
+    font-size: 11px;
+    line-height: 2;
+    text-align: center !important;
+    letter-spacing: 0.5px;
+    transform: translateX(-8px) translateY(-11px);
+    margin-bottom: 0;
+}
+
+/* Gaya untuk garis horizontal */
+.horizontal-line {
+    border: none;
+    border-bottom: 0.5px solid white;
+    margin-top: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+    opacity: 70%;
+    transform: translateY(-15px);
+}
+
+/* Dropdown Button */
+.dropdown-btn {
+    padding: 15px 20px;
+    font-size: 12px;
+    color: white;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+}
+
+.dropdown-btn img {
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+    vertical-align: middle;
+    padding-left: 0;
+    color: white;
+}
+
+.dropdown-btn:hover {
+    background-color: #3e759d;
+}
+
+/* Dropdown Arrow */
+.dropdown-arrow {
+    margin-left: auto;
+    right: 30px;
+}
+
+/* Dropdown Container */
+.dropdown-container {
+    display: none;
+    background-color: #104367;
+    padding-left: 80px;
+}
+
+.dropdown-container a {
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    display: block;
+}
+
+.dropdown-container a:hover {
+    background-color: #3e759d;
+}
+
+/* Font Awesome Icons */
+.fa-folder-open,
+.fa-file-lines,
+.fa-gears,
+.fa-box-archive {
+    color: white;
+    vertical-align: middle;
+}
+
+.fa-folder-open {
+    margin-right: 15px;
+    font-size: 19px;
+}
+
+.fa-file-lines {
+    margin-right: 18px;
+    font-size: 23px;
+}
+
+.fa-gears {
+    margin-right: 12px;
+    font-size: 21px;
+}
+
+.fa-box-archive {
+    margin-right: 18px;
+    font-size: 21px;
+}
+
+/* Custom Scrollbar Styling */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #306a97;
+    border-radius: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background-color: #104367;
+}
+
+/* Gaya Topbar */
+.topbar {
+    height: 70px;
+    width: calc(100% - 235px); /* Menyesuaikan dengan lebar sidebar */
+    background-color: #F7F7F7 !important;
+    color: #636362;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 235px;
+    /* Bayangan di bawah topbar */
+    box-shadow: 0 5px 5px rgba(74, 74, 74, 0.2);
+    z-index: 1; /* Agar topbar berada di atas konten lain */
+}
+
+.topbar-title {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.topbar-profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 40px; /* Atur ukuran profil */
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #636362;
+    margin-right: 40px;
+}
+
+.profile-link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.profile-link:hover {
+    text-decoration: underline;
+}
+
+/* Mainbar */
+.mainbar {
+    background-color: #D9D9D9 !important;
+    padding-top: 70px; /* Jarak dari topbar */
+    margin-left: 235px;
+    overflow-y: auto;
+    height: calc(100vh - 70px);
+    width: auto;
+}
+
+/* Responsif */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .mainbar {
+        margin-left: 0; /* Menghilangkan margin untuk perangkat kecil */
+    }
+    .topbar {
+        width: 100%;
+        left: 0;
+        top: 50px; /* Menyesuaikan dengan tinggi sidebar */
+    }
+    .sidebar a, .dropdown-btn {
+        text-align: center;
+    }
+    .sidebar-logo-container {
+        justify-content: center;
+    }
+}
+
+/* Container */
+.container {
+    margin-left: 250px;
+    padding: 20px;
+    background-color:#F7F7F7;
+    margin: 0 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header h2 {
+    font-size: 16px;
+    margin: 0;
+    color: #636362;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    font-size: 12px;
+}
+
+/* Dropdown tanggal */
+.filters select.pilihtanggal {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+    color: #636362;
+    width: 160px;
+}
+
+/* Input pencarian dan ikon */
+.filters .input-icon {
+    position: relative;
+    width: 250px; /* Lebar lebih pendek untuk input pencarian */
+}
+
+.filters input[type="text"] {
+    width: 100%;
+    padding: 8px 35px 8px 12px; /* Tambahkan padding untuk ikon */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.filters .input-icon i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #636362;
+}
+
+/* Tombol aksi */
+.filters .actions {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.filters .actions button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.filters .actions .btn {
+    background-color: #104367;
+    color: white;
+}
+
+.filters .actions .btn.add {
+    background-color: #71bc74;
+}
+
+.filters .actions .btn.export {
+    background-color: #e0b063;
+}
+
+/* Tabel */
+.table-container {
+    overflow-x: auto;
+    font-size: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Agar garis antar sel menyatu */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 13px;
+    text-align: center;
+    border: 1px solid #636362; /* Garis antar sel */
+    color: #636362;
+}
+
+table th {
+    font-weight: medium;
+    border-bottom: 1px solid #636362; /* Garis tebal untuk header */
+}
+
+table td button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #104367;
+    color: white;
+    font-size: 12px;
+}
+
+table td button.edit {
+    background-color: #3498db;
+}
+
+table td button.delete {
+    background-color: #e74c3c;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 5px;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #104367;
+    color: white;
+    font-size: 12px;
+}
+
+.pagination button.active {
+    background-color: #3498db;
+}
+.input-icon {
+    position: relative;
+    width: 100%;
+    max-width: 100px; /* Sesuaikan dengan kebutuhan */
+}
+
+.input-icon i {
+    position: absolute;
+    right: 5px !important;/* Pindahkan ikon ke sisi kanan */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #636362; /* Warna ikon */
+}
+
+.input-icon input {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* Tambahkan padding kanan untuk ruang ikon */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    
+}
+
+.input-icon input:focus {
+    border-color: #104367; /* Ubah warna border saat fokus */
+}
+
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Modal container */
+        .modal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            z-index:899;
+        }
+
+        .modal-content {
+            background-color: #f7f7f7;
+            border-radius: 13px;
+            width: 600px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Header */
+        .modal-content h2 {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #636362;
+        }
+
+        /* Form elements */
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+       
+        
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            right: 10px;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #636362;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        select {
+            width: 250px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            box-shadow: 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group input[type="number"] {
+            width: 100px;
+        }
+
+        .small-input {
+            width: 150px;
+        }
+
+        .medium-input {
+            width: 180px;
+        }
+.form-row{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+        /* Timbangan section */
+        .timbangan-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .timbangan-container span {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #636362;
+        }
+
+        .timbangan-inputs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .timbangan-inputs input[type="text"] {
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+            text-align: center;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Total label */
+        .total-container {
+            text-align: right;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: #636362;
+        }
+
+        /* Submit button */
+        .submit-btn {
+            width: 35%;
+            padding: 10px;
+            border: none;
+            background-color:#104367;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-left: auto;
+            display: block;
+            margin-right: auto;
+            color: white;
+        }
+
+        .submit-btn:hover {
+            background-color: #aaa;
+        }
+
+        /* Close button */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }

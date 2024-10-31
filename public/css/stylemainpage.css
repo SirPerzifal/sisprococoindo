@@ -1,0 +1,353 @@
+/* Gaya Sidebar */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white !important;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100vh; /* Sidebar memiliki tinggi penuh layar */
+    width: 235px;
+    background-color: #104367;
+    padding-top: 10px;
+    position: fixed;
+    overflow-y: auto; /* Aktifkan scroll secara vertikal */
+}
+
+/* Gaya Logo Sidebar */
+.sidebar-logo-container {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 15px;
+}
+
+.sidebarlogo {
+    width: 30%;
+    height: auto;
+    margin-top: 10px;
+    padding: 0;
+    transform: translateX(-5px);
+    transform: translateY(-12px);
+}
+
+.sidebar-logo-container p {
+    color: white;
+    font-weight: 400;
+    margin-left: 20px;
+    font-size: 11px;
+    line-height: 2;
+    text-align: center !important;
+    letter-spacing: 0.5px;
+    transform: translateX(-8px) translateY(-11px);
+    margin-bottom: 0;
+}
+
+/* Gaya untuk garis horizontal */
+.horizontal-line {
+    border: none;
+    border-bottom: 0.5px solid white;
+    margin-top: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+    opacity: 70%;
+    transform: translateY(-15px);
+}
+
+/* Dropdown Button */
+.dropdown-btn {
+    padding: 15px 20px;
+    font-size: 12px;
+    color: white;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+}
+
+.dropdown-btn img {
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+    vertical-align: middle;
+    padding-left: 0;
+    color: white;
+}
+
+.dropdown-btn:hover {
+    background-color: #3e759d;
+}
+
+/* Dropdown Arrow */
+.dropdown-arrow {
+    margin-left: auto;
+    right: 30px;
+}
+
+/* Dropdown Container */
+.dropdown-container {
+    display: none;
+    background-color: #104367;
+    padding-left: 80px;
+}
+
+.dropdown-container a {
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    display: block;
+}
+
+.dropdown-container a:hover {
+    background-color: #3e759d;
+}
+
+/* Font Awesome Icons */
+.fa-folder-open,
+.fa-file-lines,
+.fa-gears,
+.fa-box-archive {
+    color: white;
+    vertical-align: middle;
+}
+
+.fa-folder-open {
+    margin-right: 15px;
+    font-size: 19px;
+}
+
+.fa-file-lines {
+    margin-right: 18px;
+    font-size: 23px;
+}
+
+.fa-gears {
+    margin-right: 12px;
+    font-size: 21px;
+}
+
+.fa-box-archive {
+    margin-right: 18px;
+    font-size: 21px;
+}
+
+/* Custom Scrollbar Styling */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #306a97;
+    border-radius: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background-color: #104367;
+}
+
+/* Gaya Topbar */
+.topbar {
+    height: 70px;
+    width: calc(100% - 235px); /* Menyesuaikan dengan lebar sidebar */
+    background-color: #F7F7F7 !important;
+    color: #636362;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 235px;
+    z-index: 1000; /* Agar topbar berada di atas konten lain */
+}
+
+.topbar-title {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.topbar-profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 40px; /* Atur ukuran profil */
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #636362;
+    margin-right: 40px;
+}
+
+.profile-link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.profile-link:hover {
+    text-decoration: underline;
+}
+.mainbar{
+    background-color:#7C7C7A  !important ;
+}
+/* Responsif */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .mainbar {
+        margin-left: 0; /* Menghilangkan margin untuk perangkat kecil */
+    }
+    .topbar {
+        width: 100%;
+        left: 0;
+        top: 50px; /* Menyesuaikan dengan tinggi sidebar */
+    }
+    .sidebar a, .dropdown-btn {
+        text-align: center;
+    }
+    .sidebar-logo-container {
+        justify-content: center;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.header .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.header .actions button,
+.header .actions .btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #104367;
+    color: white;
+    font-size: 14px;
+}
+
+.header .actions .btn.add {
+    background-color: #4CAF50;
+}
+
+.header .actions .btn.export {
+    background-color: #f39c12;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.filters select,
+.filters input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Agar garis antar sel menyatu */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd; /* Garis antar sel */
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd; /* Garis tebal untuk header */
+}
+
+table td button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #104367;
+    color: white;
+    font-size: 12px;
+}
+
+table td button.edit {
+    background-color: #3498db;
+}
+
+table td button.delete {
+    background-color: #e74c3c;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination button {
+    padding: 10px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #104367;
+    color: white;
+}
+
+.pagination button.active {
+    background-color: #3498db;
+}
+
+

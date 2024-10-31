@@ -1,0 +1,352 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+      <!-- Alpine.js untuk toggle sidebar -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<style>
+
+/* Sidebar */
+.sidebar {
+    height: 100vh; /* Sidebar memiliki tinggi penuh layar */
+    background-color: #104367;
+    padding-top: 10px;
+    position: fixed;
+    overflow-y: auto; /* Aktifkan scroll secara vertikal */
+}
+
+/* Gaya Logo Sidebar */
+.sidebar-logo-container {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 15px;
+}
+
+.sidebarlogo {
+    width: 30%;
+    height: auto;
+    margin-top: 10px;
+    padding: 0;
+    transform: translateX(-5px);
+    transform: translateY(-12px);
+}
+
+.sidebar-logo-container p {
+    color: white;
+    font-weight: 400;
+    margin-left: 20px;
+    font-size: 11px;
+    line-height: 2;
+    text-align: center !important;
+    letter-spacing: 0.5px;
+    transform: translateX(-8px) translateY(-11px);
+    margin-bottom: 0;
+}
+
+/* Gaya untuk garis horizontal */
+.horizontal-line {
+    border: none;
+    border-bottom: 0.5px solid white;
+    margin-top: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+    opacity: 70%;
+    transform: translateY(-15px);
+}
+
+/* Dropdown Button */
+.dropdown-btn {
+    padding: 15px 20px;
+    font-size: 12px;
+    color: white;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+}
+
+.dropdown-btn img {
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+    vertical-align: middle;
+    padding-left: 0;
+    color: white;
+}
+
+.dropdown-btn:hover {
+    background-color: #3e759d;
+}
+
+/* Dropdown Arrow */
+.dropdown-arrow {
+    margin-left: auto;
+    right: 30px;
+}
+
+/* Dropdown Container */
+.dropdown-container {
+    display: none;
+    background-color: #104367;
+    padding-left: 80px;
+}
+
+.dropdown-container a {
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    display: block;
+}
+
+.dropdown-container a:hover {
+    background-color: #3e759d;
+}
+
+/* Font Awesome Icons */
+.fa-folder-open,
+.fa-file-lines,
+.fa-gears,
+.fa-box-archive {
+    color: white;
+    vertical-align: middle;
+}
+
+.fa-folder-open {
+    margin-right: 15px;
+    font-size: 19px;
+}
+
+.fa-file-lines {
+    margin-right: 18px;
+    font-size: 23px;
+}
+
+.fa-gears {
+    margin-right: 12px;
+    font-size: 21px;
+}
+
+.fa-box-archive {
+    margin-right: 18px;
+    font-size: 21px;
+}
+.fa-search{
+    align-items: right;
+}
+
+/* Custom Scrollbar Styling */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #306a97;
+    border-radius: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background-color: #104367;
+}
+</style>
+<div class="flex h-screen">
+    <!-- Sidebar -->
+    <aside class="sidebar w-64 bg-gray-100">
+        <div x-data="{ open: false }" class="flex h-screen">
+            <!-- Tombol hamburger untuk layar kecil -->
+        <div class="absolute top-4 left-4 sm:hidden">
+            <button @click="open = !open" class="p-2 text-white bg-blue-600 rounded-md">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <aside :class="{ 'block': open, 'hidden': !open }" class="sidebar bg-gray-100 fixed sm:block w-64 hidden sm:relative sm:flex-shrink-0 h-full z-50" @click.away="open = false">
+        <div class="sidebar-logo-container">
+            <img src="{{asset('img/logonobackground.png') }}" alt="Cocoindo Logo" class="sidebarlogo">
+            <p>COCOINDO ABADI<br> SUKSES</p>
+        </div>
+        <hr class="horizontal-line">
+
+        <button class="dropdown-btn"><i class="fa-solid fa-file-lines"></i>Laporan Harian Hasil Kerja
+            <span class="dropdown-arrow">&#9662;</span>
+        </button>
+        <div class="dropdown-container">
+            <a href="{{ route('laporan.dkp') }}">DKP</a>
+            <a href="{{ route('laporan.dkp_reject') }}">DKP Reject</a>
+            <a href="{{ route('laporan.kulitari') }}">Kulit Ari </a>     
+            <a href="{{ route('laporan.airkelapa') }}">Air Kelapa</a>
+            <a href="{{ route('laporan.tempurung') }}">Tempurung</a>
+            <a href="{{ route('laporan.serabutkelapa') }}">Serabut Kelapa</a>
+
+        </div>
+
+        <button class="dropdown-btn"><i class="fa-regular fa-folder-open"></i>Rekap Hasil Kerja
+            <span class="dropdown-arrow">&#9662;</span>
+        </button>
+        <div class="dropdown-container">
+            <a href="{{ route ('rekap_laporan.dkp') }}">DKP</a>
+            <a href="#link2">Kulit Ari</a>
+            <a href="#link3">Tempurung</a>
+            <a href="#link4">Serabut Kelapa</a>
+            <a href="#link5">Air Kelapa</a>
+        </div>
+
+        <button class="dropdown-btn"><i class="fa-solid fa-gears"></i>Produksi
+            <span class="dropdown-arrow">&#9662;</span>
+        </button>
+        <div class="dropdown-container">
+            <a href="#link1">Santan</a>
+            <a href="#link2">Air Kelapa</a>
+        </div>
+
+        <button class="dropdown-btn"><i class="fa-solid fa-box-archive"></i>Stok Barang
+            <span class="dropdown-arrow">&#9662;</span>
+        </button>
+        <div class="dropdown-container">
+            <a href="#link1">DKP</a>
+            <a href="#link2">Kelapa Bulat</a>
+            <a href="#link3">Santan</a>
+            <a href="#link4">Air Kelapa</a>
+            <a href="#link5">Pemakaian Kelapa Bulat</a>
+            <a href="#link6">DC Putih</a>
+            <a href="#link7">DC Yellow-Reject</a>
+        </div>
+    </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+        <!-- Topbar (Navbar) -->
+        <nav class="bg-[#F7F7F7] border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-20">
+                    <div class="flex">
+                        <!-- Logo -->
+                      
+                        <!-- Navigation Links -->
+                      
+                            <!-- Tambah link lain jika dibutuhkan -->
+                        
+                    </div>
+
+                    <!-- Settings Dropdown -->
+                    <div class="hidden sm:flex sm:items-center sm:ms-6">
+                        <x-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500  hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                    <div>{{ Auth::user()->name }}</div>
+                                    <div class="ms-1">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </button>
+                            </x-slot>
+
+                            <x-slot name="content">
+                                <x-dropdown-link :href="route('profile.edit')">
+                                    {{ __('Profile') }}
+                                </x-dropdown-link>
+
+                                <!-- Authentication -->
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <x-dropdown-link :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form>
+                            </x-slot>
+                        </x-dropdown>
+                    </div>
+
+                    <!-- Hamburger for Mobile -->
+                    <div class="-me-2 flex items-center sm:hidden">
+                        <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Responsive Menu -->
+            <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+                <div class="pt-2 pb-3 space-y-1">
+                    <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-responsive-nav-link>
+                </div>
+
+                <!-- Responsive Settings -->
+                <div class="pt-4 pb-1 border-t border-gray-200">
+                    <div class="px-4">
+                        <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                        <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    </div>
+
+                    <div class="mt-3 space-y-1">
+                        <x-responsive-nav-link :href="route('profile.edit')">
+                            {{ __('Profile') }}
+                        </x-responsive-nav-link>
+
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-responsive-nav-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-responsive-nav-link>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+<script>
+      // Mengambil semua elemen dengan class "dropdown-btn"
+      var dropdowns = document.getElementsByClassName("dropdown-btn");
+
+for (var i = 0; i < dropdowns.length; i++) {
+    dropdowns[i].addEventListener("click", function() {
+        // Toggle class "active" untuk mengubah tampilan dropdown
+        this.classList.toggle("active");
+
+        // Mendapatkan elemen dropdown berikutnya
+        var dropdownContent = this.nextElementSibling;
+
+        // Toggle tampilan dropdown
+        if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+        } else {
+            dropdownContent.style.display = "block";
+        }
+    });
+}
+
+// Mengambil semua elemen dengan tag <a> di dalam sidebar
+var sidebarLinks = document.querySelectorAll('.sidebar a');
+
+// Loop melalui setiap elemen <a> dan tambahkan event listener klik
+sidebarLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+        // Menghapus kelas 'active' dari semua link
+        sidebarLinks.forEach(function(link) {
+            link.classList.remove('active');
+        });
+
+        // Menambahkan kelas 'active' ke link yang di-klik
+        this.classList.add('active');
+    });
+});
+</script>

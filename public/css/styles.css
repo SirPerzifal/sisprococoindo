@@ -1,0 +1,537 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #f0f2f5; /* Warna latar belakang yang lembut */
+    
+}
+
+.container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+}
+
+.left, .right {
+    flex: 1; /* Membagi ruang secara sama */
+    padding: 0px; /* Memberi jarak di dalam kontainer */
+    box-sizing: border-box; /* Agar padding tidak menambah ukuran elemen */
+}
+
+.left {
+    color: white; /* Warna latar belakang untuk bagian kiri */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.right h1 {
+    font-size: 16px;
+    margin: 10px 0;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.left .left-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire container without distorting the image */
+    object-position: center; /* Center the image */
+    opacity: 80%;
+}
+    
+
+.right { 
+    background-color: #FFFFFF;
+    color: #545454; /* Warna latar belakang untuk bagian kanan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* horizontal offset, vertical offset, blur radius, color */  
+}
+
+.login-form .form-group {
+    margin-bottom: 15px;
+    width: 100%; /* Adjusted width to fit form */
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    
+}
+.login-form input::placeholder {
+    font-size: 12px; /* Sesuaikan ukuran teks placeholder di sini */
+    color: #636362;     /* Anda juga bisa mengatur warna placeholder */
+    opacity: 70%;
+   
+}
+
+
+.login-form input {
+    width: 100%; /* Lebar input 100% dari kontainer form */
+    padding: 12px 12px 12px 40px; /* Padding adjusted for icon space */
+    border: 1px solid #ccc; /* Border input */
+    border-radius: 12px !important; /* Sudut membulat pada input */
+    margin: 8px 0; 
+    margin-bottom: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box; /* Include padding in width calculation */
+    
+}
+/* Tambahkan kelas untuk menandai input yang tidak valid */
+.login-form .input-error {
+    border: 1px solid red;
+    background-color: #FFFFFF;
+}
+
+.login-form .input-error::placeholder {
+    color: #545454;
+}
+
+
+.login-form .rememberMe {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.login-form .rememberMe input[type="checkbox"] {
+    width: 16px; /* Reduce width of the checkbox */
+    height: 16px; /* Reduce height of the checkbox */
+    margin-right: 8px; /* Reduced margin to fit the smaller checkbox */
+    cursor: pointer; /* Change cursor to pointer to indicate clickable area */
+    box-shadow: none;
+}
+
+.login-form .rememberMe label {
+    margin: 0; /* Remove margin to align label properly with the checkbox */    
+    margin-right: 20px;
+    color: #636362;
+    opacity: 90%;
+
+}
+
+.login-form .rememberMe a {
+    margin-left: auto; /* Pushing the link to the far right */
+    font-size: 14px;
+    transform: translateX(7px);
+    text-decoration: none;
+    color: #636362;
+    opacity: 90%;
+
+    
+}
+.login-form .rememberMe a:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: blue;
+}
+
+.login-form .btn {
+    width: 100%; /* Lebar tombol 100% dari kontainer form */
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #104367; /* Warna latar belakang tombol */
+    color: white; /* Warna teks tombol */
+    cursor: pointer; /* Menunjukkan bahwa tombol dapat diklik */
+    font-size: 14px;  
+  
+}
+
+.login-form .btn:hover {
+    background-color: #3c79c9; /* Warna latar belakang tombol saat dihover */
+}
+
+.login-form .signup {
+    text-align: center; /* Menyusun teks pendaftaran ke tengah */
+    padding-top: 8px;
+    color: #636362;
+    opacity: 90%;
+}
+
+.login-form .signup a:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: blue;
+}
+.login-form .signup a {
+    margin-left: auto; /* Pushing the link to the far right */
+    font-size: 14px;
+    transform: translateX(7px);
+    text-decoration: none;
+    color: #616161;
+    font-weight: bold;
+}
+
+
+.login-form .logo {
+    width: 90px;
+    height: 79px;
+    transform: translateY(-8px);
+}
+
+
+/* Styles for input-icon container */
+.input-icon {
+    position: relative; /* Allows positioning of icon inside container */
+    width: 100%;
+}
+
+.input-icon i {
+    position: absolute;
+    right:15px; /* Adjusted to fit within the input field */
+    top: 50%;
+    transform: translateY(-6%);
+    color: #616161; /* Icon color */
+}
+
+.input-icon input {
+    padding-left: 40px; /* Space for the icon */
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width calculation */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow */
+}
+
+.input-icon input:focus {
+    outline: none;
+    border-color: #8d8d8d; /* Border color on focus */
+    box-shadow: 0 0 0 1px #8d8d8d; /* Shadow on focus */
+}
+
+/* Additional styles for password visibility toggle */
+.input-icon {
+    width: 100%;
+    position: relative; /* Allows positioning of icon inside container */
+}
+
+/* Styles for icons */
+.input-icon i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color:  #636362;/* Icon color */
+}
+
+.input-icon .fa-lock {
+    left: 12px; /* Space from the left edge */
+}
+
+.input-icon .fa-eye {
+    right: 12px; /* Space from the right edge */
+}
+
+.input-icon input {
+    padding-left: 40px; /* Space for the left icon (fa-lock) */
+    padding-right: 40px; /* Space for the right icon (fa-eye) */
+    width: 100%; /* Full width of the container */
+    box-sizing: border-box; /* Include padding in width calculation */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow */
+}
+
+.input-icon input:focus {
+    outline: none;
+    border-color: #8d8d8d; /* Border color on focus */
+    box-shadow: 0 0 0 1px #8d8d8d; /* Shadow on focus */
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+
+
+/*STYLE CSS BUAT FORGOT PASSWORD*/
+.right.h3{
+    margin:8px;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #f0f2f5; /* Warna latar belakang yang lembut */
+}
+
+.container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+    position: relative; /* Allows absolute positioning of the back button */
+}
+
+.left, .right {
+    flex: 1; /* Membagi ruang secara sama */
+    padding: 0px; /* Memberi jarak di dalam kontainer */
+    box-sizing: border-box; /* Agar padding tidak menambah ukuran elemen */
+}
+
+.left {
+    color: white; /* Warna latar belakang untuk bagian kiri */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.right {
+    background-color: #FFFFFF;
+    color: #545454; /* Warna latar belakang untuk bagian kanan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+    background-color: #FFFFFF;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* horizontal offset, vertical offset, blur radius, color */
+}
+
+.login-form .form-group {
+    margin-bottom: 10px;
+    width: 100%; /* Adjusted width to fit form */
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-form input {
+    width: 100%; /* Lebar input 100% dari kontainer form */
+    padding: 12px;
+    border: 1px solid #ccc; /* Border input */
+    border-radius: 4px; /* Sudut membulat pada input */
+    margin: 8px 0;
+    margin-bottom: 11px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.login-form .btn {
+    width: 100%; /* Lebar tombol 100% dari kontainer form */
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #104367; /* Warna latar belakang tombol */
+    color: white; /* Warna teks tombol */
+    cursor: pointer; /* Menunjukkan bahwa tombol dapat diklik */
+    font-size: 14px;
+}
+
+.login-form .btn:hover {
+    background-color: #3c79c9; /* Warna latar belakang tombol saat dihover */
+}
+
+.login-form .logo {
+    width: 90px;
+    height: 83px;
+    transform: translateY(-8px);
+}
+
+
+/* Styles for the back button with text */
+.back-button {
+    position: absolute;
+    top: 20px; /* Distance from the top edge of the .right section */
+    left: 20px; /* Distance from the left edge of the .right section */
+    display: flex;
+    align-items: center;
+    background-color: #104367; /* Background color for the button */
+    color: white; /* Text and icon color */
+    border-radius: 8px; /* Rounded corners for the button */
+    padding: 10px 15px; /* Padding around the content */
+    text-decoration: none; /* Remove underline from link */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the button */
+}
+
+.back-button .back-text {
+    margin-left: 10px; /* Space between icon and text */
+    font-size: 14px; /* Text size */
+}
+
+.back-button i {
+    font-size: 18px; /* Icon size */
+}
+
+.back-button:hover {
+    background-color: #3c79c9; /* Background color on hover */
+}
+
+
+.logosignup {
+    width: 90px;
+    display: block;
+    
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: large;
+}
+
+.formulir-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.formulir-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px !important;
+}
+.formulir-group input::placeholder {
+    font-size: 12px; /* Sesuaikan ukuran teks placeholder di sini */
+    color: #636362;     /* Anda juga bisa mengatur warna placeholder */
+    opacity: 70%;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+.signuppage {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: 636362;
+    opacity: 90%;
+}
+
+.signuppage p {
+    margin: 0;
+}
+
+
+.signuppage a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+.signuppage a {
+    margin-left: auto; /* Pushing the link to the far right */
+    font-size: 14px;
+    transform: translateX(7px);
+    text-decoration: none;
+    color: #636362;
+    font-weight: bold;
+}
+
+.btn-reset {
+    width: 100%; /* Lebar tombol 100% dari kontainer form */
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #104367; /* Warna latar belakang tombol */
+    color: white; /* Warna teks tombol */
+    cursor: pointer; /* Menunjukkan bahwa tombol dapat diklik */
+    font-size: 14px;  
+    margin-bottom: 10px;
+  
+}
+
+.btn-reset:hover {
+    background-color: #3c79c9; /* Warna latar belakang tombol saat dihover */
+}
+
+/*CSS STYLE UNTUK HALAMAN ACCOUNT CREATED SUCCSESSFUL*/
+
+
+/* Style for the sign-in button */
+.btn-signIn {
+    width: 40%; /* Lebar tombol 65% dari kontainer form */
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #104367; /* Warna latar belakang tombol */
+    color: white; /* Warna teks tombol */
+    cursor: pointer; /* Menunjukkan bahwa tombol dapat diklik */
+    font-size: 14px;  
+    margin-bottom: 15px; /* Jarak atas tombol */
+    margin-top: 10px;
+    display: block; /* Membuat tombol menggunakan lebar kontainer */
+    text-align: center; /* Memusatkan teks tombol */
+    
+}
+
+/* Style for the check icon */
+.fa-circle-check {
+    font-size: 40px; /* Ukuran ikon */
+    color:#636362; /* Warna ikon hijau */
+    /* Jarak bawah ikon dari teks */
+    display: block; /* Menyusun ikon di atas teks */
+    margin-top: 15px;
+}
+
+/* Style for the success message text */
+.text1 {
+    color: #636362;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center; /* Memusatkan teks */
+    margin-bottom:5px; /* Jarak atas dan bawah teks */
+}
+
+.text2 {
+    color: #636362;
+    font-size: 16px;
+    text-align: center; /* Memusatkan teks */
+    margin-bottom: 15px ; /* Jarak atas dan bawah teks */
+
+}
+.succsess-logo {
+    width: 95px;
+    height: 85px;
+    transform: translateY(-8px);
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+
