@@ -235,163 +235,7 @@ table td button.delete {
     border-color: #104367; /* Ubah warna border saat fokus */
 }
 
-/* Modal container */
-        .modal {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.2);
-            z-index:899;
-        }
-
-        .modal-content {
-            background-color: #f7f7f7;
-            border-radius: 13px;
-            width: 600px;
-            padding: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        /* Header */
-        .modal-content h2 {
-            text-align: center;
-            font-size: 16px;
-            margin-bottom: 30px;
-            color: #636362;
-        }
-
-        /* Form elements */
-        .form-group {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .close {
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            right: 10px;
-        }
-
-        label {
-            font-size: 14px;
-            margin-bottom: 5px;
-            color: #636362;
-            display: block;
-        }
-
-        input[type="text"],
-        input[type="date"],
-        input[type="number"],
-        select {
-            width: 250px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-            box-shadow: 1px 2px rgba(0, 0, 0, 0.05);
-        }
-
-        .form-group input[type="number"] {
-            width: 100px;
-        }
-
-        .small-input {
-            width: 150px;
-        }
-
-        .medium-input {
-            width: 180px;
-        }
-.form-row{
-    flex-direction: row;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-        /* Timbangan section */
-        .timbangan-container {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .timbangan-container span {
-            display: inline-block;
-            margin-bottom: 10px;
-            font-size: 14px;
-            color: #636362;
-        }
-
-        .timbangan-inputs {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .timbangan-inputs input[type="text"] {
-            width: 40px;
-            height: 40px;
-            padding: 5px;
-            text-align: center;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        /* Total label */
-        .total-container {
-            text-align: right;
-            margin-bottom: 30px;
-            font-size: 14px;
-            color: #636362;
-        }
-
-        /* Submit button */
-        .submit-btn {
-            width: 35%;
-            padding: 10px;
-            border: none;
-            background-color:#104367;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin-left: auto;
-            display: block;
-            margin-right: auto;
-            color: white;
-        }
-
-        .submit-btn:hover {
-            background-color: #aaa;
-        }
-
-        /* Close button */
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
+   
         .horizontalline1 {
         /* Warna teks, tidak berpengaruh pada <hr> */
         border: none; /* Hapus border default */
@@ -419,6 +263,234 @@ table td button.delete {
       
    
     }
+
+.modal {
+    display: flex;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.modal-back {
+    background-color: #F7F7F7;
+    border-radius: 8px;
+    padding: 25px; /* Tambahan padding agar lebih rapi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Batas maksimal lebar modal */
+    width: 100%;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #D9D9D9;
+    margin: auto;
+    padding: 20px;
+    width: 70%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+}
+.modal-header{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Untuk membuat tombol close tetap di pojok kanan */
+}
+
+.modal-header h2 {
+    color: #636362;
+    text-align: center;
+    flex-grow: 1;
+    
+}
+.judul{
+    font-size: 14px;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.form-item {
+    display: flex;
+    align-items: center;
+    width:90%; /* Menjaga kedua form-item (Total Keranjang dan Tipe Keranjang) agar seimbang */
+}
+
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: row;
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+.inline-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto; 
+    flex-wrap: wrap;
+   
+}
+.inline-group label {
+    font-size: 14px;
+    color: #636362;
+    margin-right: 20px;
+    white-space: nowrap; /* Mencegah label memotong */
+}
+.inline-group select {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.inline-group input[type="text"],
+.inline-group select {
+    width: 100%;
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 13px;
+    color: #636362;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+/* To make the inline group take up full width */
+.full-width {
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #636362;
+    display: block;
+}
+
+.inline-group input[type="date"]{
+    width: 90%;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+   
+}
+
+input[type="text"],
+input[type="number"]::placeholder,
+input[type="date"]::placeholder {
+    color: #636362;
+    opacity: 1; 
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    color: #636362; /* Warna teks pada input */
+}
+
+.timbangan-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.timbangan-container h3 {
+    font-size: 14px;
+    color: #636362;
+    margin: 10px 0 15px;
+
+}
+
+.timbangan-inputs {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(12, 0.5fr);
+   
+}
+
+.timbangan-inputs div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timbangan-inputs label {
+    font-size: 12px;
+    color: #636362;
+    margin-top:10px;
+}
+
+.timbangan-inputs input {
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    height: 80%;
+}
+
+.total-container {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #636362;
+}
+
+.submit-btn {
+    width: 20%;
+    padding: 10px;
+    border: none;
+    background-color: #104367;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    margin-top: 20px;
+    display: block; /* Membuat tombol tetap dalam satu baris */
+    margin-left: auto; /* Agar berada di sebelah kanan */
+    margin-right: auto;
+}
+
+.submit-btn:hover {
+    background-color: #aaa;
+}
+.close {
+    position: absolute;
+    top:5px;
+    right: 2px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #636362;
+    cursor: pointer;
+    transform: translateX(12px);
+    transform: translateY(-10px);
+   
+}
+    
 
 </style>
 
@@ -507,75 +579,107 @@ table td button.delete {
         </div>
 
 
-    <!-- Modal -->
-    <div class="modal">
+
+     <!-- Modal -->
+     <div id="modal" class="modal">
         <div class="modal-content">
+            <div id="modal-back" class="modal-back">
             <div class="modal-header">
-                <h2>FORM INPUT HASIL KERJA SHELLER - PARER ( AIR KELAPA )</h2>
+                <h2 class="judul">FORM INPUT HASIL KERJA SHELLER - PARER ( AIR KELAPA )</h2>
                 <span class="close">&times;</span>
             </div>
-           
+    
             <div class="form-group">
                 <div>
-                    <label for="nama-sheller">Nama Pekerja</label>
-                    <input class="small-input" type="text" id="nama-sheller" value="Marcella Corazon" >
+                    <label for="nama-sheller">Nama Sheller / Parer</label>
+                    <input type="text" id="nama-sheller" value="Marcella Corazon">
                 </div>
-              
+               
                 <div>
                     <label for="tanggal-picker">Tanggal</label>
-                    <input type="date" class="small-input" id="tanggal-picker">
+                    <input type="date" id="tanggal-picker">
                 </div>
-            </div>
-            <div class="form-group">
-            <div>
-                <label for="departemen">Bagian</label>
-                <input type="text" class="small-input" id="departemen" value="" >
-            </div>
-            
-                <div class="form-row">
-                    <div>
+    
+                <div class="inline-group">
+                    <div class="form-item">
                         <label for="total-keranjang">Total Keranjang</label>
-                        <input type="number" class="small-input" id="total-keranjang">
+                        <input class="totalkrj" type="text" id="total-keranjang">
                     </div>
-                <div>
-                    <label for="tipe-keranjang">Tipe Keranjang</label>
-                    <select id="tipe-keranjang" class= "small-input">
-                        <option value="A">Keranjang Besar</option>
-                        <option value="B">Keranjang Kecil</option>
-                    </select>
+            
+                    <div class="form-item">
+                        <label for="tipe-keranjang">Tipe Keranjang</label>
+                                    <select id="tipe-keranjang" class="custom-select">
+                                        <option value="A">Keranjang Besar</option>
+                                        <option value="B">Keranjang Kecil</option>
+                                    </select>
+                    </div>
                 </div>
-                </div> 
             </div>
-          
-    
-            <!-- Timbangan section -->
+                
             <div class="timbangan-container">
-                <span>Hasil Timbangan Air Kelapa</span>
+                <h3>Hasil Timbangan Kulit Air Kelapa</h3>
                 <div class="timbangan-inputs">
-                    <input type="text" id="timbangan1">
-                    <input type="text" id="timbangan2">
-                    <input type="text" id="timbangan3">
-                    <input type="text" id="timbangan4">
-                    <input type="text" id="timbangan5">
-                    <input type="text" id="timbangan6">
-                    <input type="text" id="timbangan7">
-                    <input type="text" id="timbangan8">
-                    <input type="text" id="timbangan9">
-                    <input type="text" id="timbangan10">
-                    <input type="text" id="timbangan11">
-                    <input type="text" id="timbangan12">
+                    <!-- Each input wrapped with a label above -->
+                    <div>
+                        <label for="timbangan-1">1</label>
+                        <input type="number" id="timbangan-1">
+                    </div>
+                    <div>
+                        <label for="timbangan-2">2</label>
+                        <input type="number" id="timbangan-2">
+                    </div>
+                    <div>
+                        <label for="timbangan-3">3</label>
+                        <input type="number" id="timbangan-3">
+                    </div>
+                    <div>
+                        <label for="timbangan-4">4</label>
+                        <input type="number" id="timbangan-4">
+                    </div>
+                    <div>
+                        <label for="timbangan-5">5</label>
+                        <input type="number" id="timbangan-5">
+                    </div>
+                    <div>
+                        <label for="timbangan-6">6</label>
+                        <input type="number" id="timbangan-6">
+                    </div>
+                    <div>
+                        <label for="timbangan-7">7</label>
+                        <input type="number" id="timbangan-7">
+                    </div>
+                    <div>
+                        <label for="timbangan-8">8</label>
+                        <input type="number" id="timbangan-8">
+                    </div>
+                    <div>
+                        <label for="timbangan-9">9</label>
+                        <input type="number" id="timbangan-9">
+                    </div>
+                    <div>
+                        <label for="timbangan-10">10</label>
+                        <input type="number" id="timbangan-10">
+                    </div>
+                    <div>
+                        <label for="timbangan-11">11</label>
+                        <input type="number" id="timbangan-11">
+                    </div>
+                    <div>
+                        <label for="timbangan-12">12</label>
+                        <input type="number" id="timbangan-12">
+                    </div>
                 </div>
             </div>
     
-            <!-- Total section -->
             <div class="total-container">
                 <span>Total: 250 kg</span>
             </div>
     
-            <!-- Submit button -->
             <button class="submit-btn">Kirim</button>
         </div>
     </div>
+    
+
     
     <!-- Script to close the modal -->
     <script>

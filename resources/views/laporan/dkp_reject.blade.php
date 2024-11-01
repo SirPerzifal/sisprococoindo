@@ -266,6 +266,236 @@ table td button.delete {
     opacity: 1; /* Mengatur opasitas jika perlu */
 }
 
+
+.modal {
+    display: flex;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.modal-back {
+    background-color: #F7F7F7;
+    border-radius: 8px;
+    padding: 25px; /* Tambahan padding agar lebih rapi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Batas maksimal lebar modal */
+    width: 100%;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #D9D9D9;
+    margin: auto;
+    padding: 20px;
+    width: 70%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+}
+.modal-header{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Untuk membuat tombol close tetap di pojok kanan */
+}
+
+.modal-header h2 {
+    color: #636362;
+    text-align: center;
+    flex-grow: 1;
+    
+}
+.judul{
+    font-size: 14px;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.form-item {
+    display: flex;
+    align-items: center;
+    width:90%; /* Menjaga kedua form-item (Total Keranjang dan Tipe Keranjang) agar seimbang */
+}
+
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: row;
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+.inline-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto; 
+    flex-wrap: wrap;
+   
+}
+.inline-group label {
+    font-size: 14px;
+    color: #636362;
+    margin-right: 20px;
+    white-space: nowrap; /* Mencegah label memotong */
+}
+.inline-group select {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.inline-group input[type="text"],
+.inline-group select {
+    width: 100%;
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 13px;
+    color: #636362;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+/* To make the inline group take up full width */
+.full-width {
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #636362;
+    display: block;
+}
+
+.inline-group input[type="date"]{
+    width: 90%;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+   
+}
+
+input[type="text"],
+input[type="number"]::placeholder,
+input[type="date"]::placeholder {
+    color: #636362;
+    opacity: 1; 
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    color: #636362; /* Warna teks pada input */
+}
+
+.timbangan-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.timbangan-container h3 {
+    font-size: 14px;
+    color: #636362;
+    margin: 10px 0 15px;
+
+}
+
+.timbangan-inputs {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(12, 0.5fr);
+   
+}
+
+.timbangan-inputs div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timbangan-inputs label {
+    font-size: 12px;
+    color: #636362;
+    margin-top:10px;
+}
+
+.timbangan-inputs input {
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    height: 80%;
+}
+
+.total-container {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #636362;
+}
+
+.submit-btn {
+    width: 20%;
+    padding: 10px;
+    border: none;
+    background-color: #104367;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    margin-top: 20px;
+    display: block; /* Membuat tombol tetap dalam satu baris */
+    margin-left: auto; /* Agar berada di sebelah kanan */
+    margin-right: auto;
+}
+
+.submit-btn:hover {
+    background-color: #aaa;
+}
+.close {
+    position: absolute;
+    top:5px;
+    right: 2px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #636362;
+    cursor: pointer;
+    transform: translateX(12px);
+    transform: translateY(-10px);
+   
+}
+    
+
+
 </style>
 
 <div class="mainbar">
@@ -354,7 +584,104 @@ table td button.delete {
 
 
     <!-- Modal -->
-  
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div id="modal-back" class="modal-back">
+            <div class="modal-header">
+                <h2 class="judul">FORM INPUT HASIL KERJA SHELLER - PARER ( DKP REJECT )</h2>
+                <span class="close">&times;</span>
+            </div>
+    
+            <div class="form-group">
+                <div>
+                    <label for="nama-sheller">Nama Sheller / Parer</label>
+                    <input type="text" id="nama-sheller" value="Marcella Corazon">
+                </div>
+               
+                <div>
+                    <label for="tanggal-picker">Tanggal</label>
+                    <input type="date" id="tanggal-picker">
+                </div>
+    
+                <div class="inline-group">
+                    <div class="form-item">
+                        <label for="total-keranjang">Total Keranjang</label>
+                        <input class="totalkrj" type="text" id="total-keranjang">
+                    </div>
+            
+                    <div class="form-item">
+                        <label for="tipe-keranjang">Tipe Keranjang</label>
+                                    <select id="tipe-keranjang" class="custom-select">
+                                        <option value="A">Keranjang Besar</option>
+                                        <option value="B">Keranjang Kecil</option>
+                                    </select>
+                    </div>
+                </div>
+            </div>
+                
+            <div class="timbangan-container">
+                <h3>Hasil Timbangan Kulit DKP Reject</h3>
+                <div class="timbangan-inputs">
+                    <!-- Each input wrapped with a label above -->
+                    <div>
+                        <label for="timbangan-1">1</label>
+                        <input type="number" id="timbangan-1">
+                    </div>
+                    <div>
+                        <label for="timbangan-2">2</label>
+                        <input type="number" id="timbangan-2">
+                    </div>
+                    <div>
+                        <label for="timbangan-3">3</label>
+                        <input type="number" id="timbangan-3">
+                    </div>
+                    <div>
+                        <label for="timbangan-4">4</label>
+                        <input type="number" id="timbangan-4">
+                    </div>
+                    <div>
+                        <label for="timbangan-5">5</label>
+                        <input type="number" id="timbangan-5">
+                    </div>
+                    <div>
+                        <label for="timbangan-6">6</label>
+                        <input type="number" id="timbangan-6">
+                    </div>
+                    <div>
+                        <label for="timbangan-7">7</label>
+                        <input type="number" id="timbangan-7">
+                    </div>
+                    <div>
+                        <label for="timbangan-8">8</label>
+                        <input type="number" id="timbangan-8">
+                    </div>
+                    <div>
+                        <label for="timbangan-9">9</label>
+                        <input type="number" id="timbangan-9">
+                    </div>
+                    <div>
+                        <label for="timbangan-10">10</label>
+                        <input type="number" id="timbangan-10">
+                    </div>
+                    <div>
+                        <label for="timbangan-11">11</label>
+                        <input type="number" id="timbangan-11">
+                    </div>
+                    <div>
+                        <label for="timbangan-12">12</label>
+                        <input type="number" id="timbangan-12">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="total-container">
+                <span>Total: 250 kg</span>
+            </div>
+    
+            <button class="submit-btn">Kirim</button>
+        </div>
+    </div>
+    
     <!-- Script to close the modal -->
     <script>
         document.querySelector('.close').addEventListener('click', function () {
