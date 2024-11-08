@@ -53,6 +53,7 @@
 
 .select {
     flex-direction: row;
+  
 }
 
 /* Dropdown tanggal */
@@ -72,6 +73,7 @@
     font-size: 12px;
     color: #636362;
     width: 135px;
+    margin-left: 6px;
 }
 
 /* Input pencarian dan ikon */
@@ -256,7 +258,6 @@ table td button.delete {
         align-items: center; /* Mengatur ikon dan teks dalam satu baris */
         color: white; /* Mengatur warna teks menjadi putih */
         border: none; /* Menghapus border default */
-         /* Menambahkan padding */
         cursor: pointer; /* Menambahkan kursor pointer */
     }
 
@@ -264,7 +265,7 @@ table td button.delete {
       /* Jarak antara ikon dan teks */  
         filter: brightness(0) invert(1);
       
-    
+   
     }
 
 </style>
@@ -272,7 +273,7 @@ table td button.delete {
 <div class="mainbar">
     <div class="container">
         <div class="header">
-            <h2>Rekap Laporan Hasil Kerja Pegawai ( Kulit Ari )</h2>
+            <h2>Rekap Laporan Hasil Kerja Pegawai ( Air Kelapa )</h2>
         </div>
 
         <!-- Filter Section -->
@@ -360,14 +361,7 @@ table td button.delete {
         </div>
 
 
-    <!-- Modal -->
-  
-    <!-- Script to close the modal -->
-    <script>
-        document.querySelector('.close').addEventListener('click', function () {
-            document.querySelector('.modal').style.display = 'none';
-        });
-    </script>
+ 
     
         </div>
     </div>

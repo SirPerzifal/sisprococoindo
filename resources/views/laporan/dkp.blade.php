@@ -55,16 +55,16 @@
 }
 
 /* Dropdown tanggal */
-.filters select.pilihtanggal {
-    padding: 8px 12px;
+.filters select.pilihtanggal,
+.filters .input-icon input[type="text"] {
+    padding: 8px 12px; /* Padding yang sama */
+    height: 36px; /* Tinggi yang sama */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 12px;
     color: #636362;
-    width: 135px;
-
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
-
 /* Input pencarian dan ikon */
 .filters .input-icon {
     position: relative;
@@ -92,6 +92,8 @@
     top: 50%;
     color:#636362;
 }
+
+
 
 /* Tombol aksi */
 .filters .actions {

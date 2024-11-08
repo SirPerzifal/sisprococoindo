@@ -29,6 +29,10 @@ Route::get('/laporan/dkp_reject', [LaporanController::class, 'dkp_reject'])->nam
 
 
 Route::get('/rekap_laporan/dkp', [RekapController::class, 'dkp'])->name('rekap_laporan.dkp');
+Route::get('/rekap_laporan/kulit_ari', [RekapController::class, 'kulitari'])->name('rekap_laporan.kulit_ari');
+Route::get('/rekap_laporan/tempurung', [RekapController::class, 'tempurung'])->name('rekap_laporan.tempurung');
+Route::get('/rekap_laporan/serabut_kelapa', [RekapController::class, 'serabut_kelapa'])->name('rekap_laporan.serabut_kelapa');
+Route::get('/rekap_laporan/air_kelapa', [RekapController::class, 'air_kelapa'])->name('rekap_laporan.air_kelapa');
 
 
 require __DIR__.'/auth.php';

@@ -191,10 +191,10 @@
         </button>
         <div class="dropdown-container">
             <a href="{{ route ('rekap_laporan.dkp') }}">DKP</a>
-            <a href="#link2">Kulit Ari</a>
-            <a href="#link3">Tempurung</a>
-            <a href="#link4">Serabut Kelapa</a>
-            <a href="#link5">Air Kelapa</a>
+            <a href="{{ route ('rekap_laporan.kulit_ari') }}">Kulit Ari</a>
+            <a href="{{ route ('rekap_laporan.tempurung') }}">Tempurung</a>
+            <a href="{{ route ('rekap_laporan.serabut_kelapa') }}">Serabut Kelapa</a>
+            <a href="{{ route ('rekap_laporan.air_kelapa') }}">Air Kelapa</a>
         </div>
 
         <button class="dropdown-btn"><i class="fa-solid fa-gears"></i>Produksi

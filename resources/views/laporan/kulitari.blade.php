@@ -3,7 +3,7 @@
 @section('content')
 <style>
     /* Mainbar */
-.mainbar {
+    .mainbar {
     flex: 1%;
     background-color: #D9D9D9 !important;
     padding-top: 20px; /* Jarak dari topbar */
@@ -52,15 +52,18 @@
 }
 
 /* Dropdown tanggal */
-.filters select.pilihtanggal {
-    padding: 8px 12px;
+.filters select.pilihtanggal,
+.filters .input-icon input[type="text"] {
+    padding: 8px 12px; /* Padding yang sama */
+    height: 36px; /* Tinggi yang sama */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 12px;
     color: #636362;
-    width: 135px;
-   
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
+     
+   
 
 /* Input pencarian dan ikon */
 .filters .input-icon {
@@ -82,7 +85,10 @@
 .caridata{
     color: #636362 !important;
 }
-
+.search-input{
+    transform: translateY(-5px);
+    
+}
 .filters .input-icon i {
     position: absolute;
     padding-right: 10px;
@@ -235,11 +241,39 @@ table td button.delete {
     border-color: #104367; /* Ubah warna border saat fokus */
 }
 
-/* Modal container */
-/* Modal styling remains the same */
+        .horizontalline1 {
+        
+        border: none; /* Hapus border default */
+        border-bottom: 0.5px solid #ccc;
+         width: 100%; /* Lebar penuh */
+         margin: 5px 0 15px 0; /* Margin atas, kanan, bawah, kiri */
+        opacity: 0.5; /* Nilai opasitas (1 = tidak transparan) */
+        padding-top: 20px;
+}
+
+        .btn.export {
+        display: flex;
+        align-items: center; /* Mengatur ikon dan teks dalam satu baris */
+        color: white; /* Mengatur warna teks menjadi putih */
+        border: none; /* Menghapus border default */
+      
+        cursor: pointer; /* Menambahkan kursor pointer */
+    }
+
+     .btn.export img {
+    
+        filter: brightness(0) invert(1);
+      
+   
+    }
+    .search-input::placeholder {
+    color: #636362; /* Ganti dengan warna yang diinginkan */
+    opacity: 1; /* Mengatur opasitas jika perlu */
+}
+
 
 .modal {
-    display: flex;
+    display: none;
     position: fixed;
     z-index: 999;
     left: 0;
@@ -1073,61 +1107,6 @@ function goToPage(page) {
 
 // Load initial data
 displayData();
-
-
-// Menambahkan event listener untuk tombol tambah anggota
-document.querySelector('.add-member-btn').addEventListener('click', function() {
-// Hitung jumlah anggota parer yang sudah ada
-var currentCount = document.querySelectorAll('.anggota-block').length; 
-
-// Nomor anggota parer berikutnya
-var nextNumber = currentCount + 1;
-
-// Buat elemen HTML untuk blok baru
-var newBlock = `
-    <div class="anggota-block">
-         <div class="form-row">
-        <div class="form-group">
-            <label for="anggota-parer${nextNumber}">Anggota Parer ${nextNumber}</label>
-            <input type="text" class="kotak" id="anggota-parer${nextNumber}" placeholder="Nama Anggota Parer">
-        </div>
-
-            <div class="form-group">
-                <label for="total-keranjang${nextNumber}">Total Keranjang</label>
-                <input type="number"  class="kotak" id="total-keranjang${nextNumber}" min="0">
-            </div>
-            <div class="form-group">
-                <label for="tipe-keranjang${nextNumber}">Tipe Keranjang</label>
-                <select id="tipe-keranjang${nextNumber}" class="custom-select">
-                    <option value="A">Keranjang Besar</option>
-                    <option value="B">Keranjang Kecil</option>
-        
-                </select>
-            </div>
-        </div>
-        <span class="label-timbangan">Hasil Timbangan Kulit Ari Basah</span>
-        <div class="basket-container">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-        </div>
-      <hr class="hori-line">  
-    </div>
-    
-`;
-
-// Tambahkan blok baru ke dalam anggota-parer-container
-document.querySelector('#anggota-parer-container').insertAdjacentHTML('beforeend', newBlock);
-});
 
 
 document.getElementById('tanggal-picker').addEventListener('change', function() {

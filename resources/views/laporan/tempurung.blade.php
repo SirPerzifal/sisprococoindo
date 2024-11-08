@@ -2,7 +2,6 @@
 
 @section('content')
 <style>
-    /* Mainbar */
 .mainbar {
     flex: 1%;
     background-color: #D9D9D9 !important;
@@ -52,16 +51,16 @@
 }
 
 /* Dropdown tanggal */
-.filters select.pilihtanggal {
-    padding: 8px 12px;
+.filters select.pilihtanggal,
+.filters .input-icon input[type="text"] {
+    padding: 8px 12px; /* Padding yang sama */
+    height: 36px; /* Tinggi yang sama */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 12px;
     color: #636362;
-    width: 135px;
-   
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
-
 /* Input pencarian dan ikon */
 .filters .input-icon {
     position: relative;
@@ -211,6 +210,12 @@ table td button.delete {
     position: relative;
     width: 100%;
     max-width: 100px; /* Sesuaikan dengan kebutuhan */
+    color: #636362;
+}
+
+.search-input::placeholder {
+    color: #636362; /* Ganti dengan warna yang diinginkan */
+    opacity: 1; /* Mengatur opasitas jika perlu */
 }
 
 .input-icon i {
@@ -231,12 +236,12 @@ table td button.delete {
     
 }
 
+./* Gaya untuk input saat fokus */
 .input-icon input:focus {
     border-color: #104367; /* Ubah warna border saat fokus */
 }
 
-/* Modal container */
-        .horizontalline1 {
+.horizontalline1 {
         /* Warna teks, tidak berpengaruh pada <hr> */
         border: none; /* Hapus border default */
         border-bottom: 0.5px solid #ccc;
@@ -246,7 +251,7 @@ table td button.delete {
         padding-top: 20px;
 }
 
-        .btn.export {
+    .btn.export {
         display: flex;
         align-items: center; /* Mengatur ikon dan teks dalam satu baris */
         color: white; /* Mengatur warna teks menjadi putih */
@@ -265,7 +270,6 @@ table td button.delete {
     color: #636362; /* Ganti dengan warna yang diinginkan */
     opacity: 1; /* Mengatur opasitas jika perlu */
 }
-
 
 </style>
 

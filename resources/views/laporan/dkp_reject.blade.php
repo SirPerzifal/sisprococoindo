@@ -52,16 +52,16 @@
 }
 
 /* Dropdown tanggal */
-.filters select.pilihtanggal {
-    padding: 8px 12px;
+.filters select.pilihtanggal,
+.filters .input-icon input[type="text"] {
+    padding: 8px 12px; /* Padding yang sama */
+    height: 36px; /* Tinggi yang sama */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 12px;
     color: #636362;
-    width: 135px;
-   
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
-
 /* Input pencarian dan ikon */
 .filters .input-icon {
     position: relative;
@@ -81,6 +81,9 @@
 
 .caridata{
     color: #636362 !important;
+}
+.search-input{
+    transform: translateY(-5px);
 }
 
 .filters .input-icon i {
@@ -246,7 +249,7 @@ table td button.delete {
         padding-top: 20px;
 }
 
-        .btn.export {
+    .btn.export {
         display: flex;
         align-items: center; /* Mengatur ikon dan teks dalam satu baris */
         color: white; /* Mengatur warna teks menjadi putih */
@@ -512,7 +515,7 @@ input[type="date"] {
                 <option>13 Agustus 2024</option>
             </select>
             <div class="input-icon">
-                <input type="text"  placeholder="Cari Data" class="search-input">
+                <input type="text" placeholder="Cari Data" class="search-input">
                 <i class="fas fa-search"></i> <!-- Ikon pencarian (search icon) -->
             </div>
             <div class="actions"> 

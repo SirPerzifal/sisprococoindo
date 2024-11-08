@@ -3,7 +3,7 @@
 @section('content')
 <style>
     /* Mainbar */
-.mainbar {
+    .mainbar {
     flex: 1%;
     background-color: #D9D9D9 !important;
     padding-top: 20px; /* Jarak dari topbar */
@@ -52,16 +52,16 @@
 }
 
 /* Dropdown tanggal */
-.filters select.pilihtanggal {
-    padding: 8px 12px;
+.filters select.pilihtanggal,
+.filters .input-icon input[type="text"] {
+    padding: 8px 12px; /* Padding yang sama */
+    height: 36px; /* Tinggi yang sama */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 12px;
     color: #636362;
-    width: 135px;
-   
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
-
 /* Input pencarian dan ikon */
 .filters .input-icon {
     position: relative;
@@ -81,6 +81,9 @@
 
 .caridata{
     color: #636362 !important;
+}
+.search-input{
+    transform: translateY(-5px);
 }
 
 .filters .input-icon i {
@@ -235,7 +238,7 @@ table td button.delete {
     border-color: #104367; /* Ubah warna border saat fokus */
 }
 
-   
+/* Modal container */
         .horizontalline1 {
         /* Warna teks, tidak berpengaruh pada <hr> */
         border: none; /* Hapus border default */
@@ -246,23 +249,25 @@ table td button.delete {
         padding-top: 20px;
 }
 
-.btn.export {
+        .btn.export {
         display: flex;
         align-items: center; /* Mengatur ikon dan teks dalam satu baris */
-       
         color: white; /* Mengatur warna teks menjadi putih */
         border: none; /* Menghapus border default */
          /* Menambahkan padding */
         cursor: pointer; /* Menambahkan kursor pointer */
     }
 
-    .btn.export img {
-      /* Jarak antara ikon dan teks */
-        
+     .btn.export img {
+      /* Jarak antara ikon dan teks */  
         filter: brightness(0) invert(1);
       
    
     }
+    .search-input::placeholder {
+    color: #636362; /* Ganti dengan warna yang diinginkan */
+    opacity: 1; /* Mengatur opasitas jika perlu */
+}
 
 .modal {
     display: flex;
