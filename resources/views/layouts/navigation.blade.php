@@ -68,8 +68,10 @@
     width: 100%;
     outline: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     vertical-align: middle;
+    align-items: center;
+    gap: 10px; /* Menambahkan jarak antara ikon dan teks */
 }
 
 .dropdown-btn img {
@@ -114,11 +116,17 @@
 .fa-folder-open,
 .fa-file-lines,
 .fa-gears,
+.fa-house,
 .fa-box-archive {
     color: white;
     vertical-align: middle;
 }
 
+.fa-house{
+    margin-right: 11px;
+    transform: translateX(-3px);
+    font-size: 21px;
+}
 .fa-folder-open {
     margin-right: 15px;
     font-size: 19px;
@@ -173,6 +181,10 @@
         </div>
         <hr class="horizontal-line">
 
+       <div> <button class="dropdown-btn"><i class="fa-solid fa-house"></i></i>Dashboard
+       </div>
+          
+        </button>
         <button class="dropdown-btn"><i class="fa-solid fa-file-lines"></i>Laporan Harian Hasil Kerja
             <span class="dropdown-arrow">&#9662;</span>
         </button>
