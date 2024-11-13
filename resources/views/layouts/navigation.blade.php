@@ -181,7 +181,7 @@
         </div>
         <hr class="horizontal-line">
 
-       <div> <button class="dropdown-btn"><i class="fa-solid fa-house"></i></i>Dashboard
+       <div> <button class="dropdown-btn"><i class="fa-solid fa-house"></i></i>Dashboard  
        </div>
           
         </button>
