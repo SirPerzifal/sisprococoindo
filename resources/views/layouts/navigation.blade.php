@@ -221,13 +221,18 @@
             <span class="dropdown-arrow">&#9662;</span>
         </button>
         <div class="dropdown-container">
-            <a href="#link1">DKP</a>
+            <a href="{{ route ('card_stock.dkp') }}">DKP</a>
             <a href="#link2">Kelapa Bulat</a>
             <a href="#link3">Santan</a>
             <a href="#link4">Air Kelapa</a>
-            <a href="#link5">Pemakaian Kelapa Bulat</a>
+            <a href="{{ route ('card_stock.kulit_ari_kering') }}">Kulit Ari Kering</a>
+            <a href="{{ route ('card_stock.minyak_kelapa') }}">Minyak Kelapa</a>
+            <a href="{{ route ('card_stock.kopra_kering') }}">Kopra Kering</a>
+            <a href="{{ route ('card_stock.kopra_basah') }}">Kopra Basah</a>
+            <a href="{{ route ('card_stock.tempurung_basah') }}">Tempurung Basah</a>
             <a href="#link6">DC Putih</a>
             <a href="#link7">DC Yellow-Reject</a>
+            <a href="#link5">Pemakaian Kelapa Bulat</a>
         </div>
     </div>
     </aside>
