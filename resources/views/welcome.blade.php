@@ -6,8 +6,8 @@
     <title>Sistem Data Produksi - PT. Cocoindo Sukses Abadi</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -32,7 +32,7 @@
         }
         .header-link {
             font-size: 16px;
-            font-weight: 500;
+           
             color: white;
             transition: color 0.3s;
         }
@@ -41,10 +41,11 @@
         }
         .hero-text {
             font-size: 28px;
-            font-weight: bold;
+            font-weight: 700;
             color: white;
             text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
             line-height: 1.2;
+            transform: translateX(-22px) !important;
         }
     </style>
 </head>
@@ -57,11 +58,11 @@
             <header class="flex justify-between items-center py-5 px-10 relative z-10">
                 <!-- Logo di Kiri -->
                 <div class="flex items-center gap-4">
-                    <img src="{{asset('img/logo_putih.png')}}" alt="Cocoindo Logo" class="h-12 w-12">
+                    <img src="{{asset('img/logo_putih.png')}}" alt="Cocoindo Logo" class="h-12 w-14">
                 </div>
 
                 <!-- Navigasi Tengah -->
-                <nav class="flex-1 flex justify-center gap-10">
+                <nav class="flex-1 flex justify-center gap-4">
                     <a href="#" class="header-link">Home</a>
                     <a href="#" class="header-link">About</a>
                     <a href="#" class="header-link">Contact</a>
