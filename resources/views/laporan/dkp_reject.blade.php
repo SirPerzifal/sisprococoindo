@@ -565,8 +565,6 @@ input[type="date"] {
         </div>
         
 
-      
-
         <!-- Pagination Section -->
         <hr class="horizontalline1">
         <div class="pagination-container">
@@ -768,7 +766,6 @@ function goToPage(page) {
 
 // Load initial data
 displayData();
-
 
 
 </script>

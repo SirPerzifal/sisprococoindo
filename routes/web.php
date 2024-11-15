@@ -36,10 +36,12 @@ Route::get('/rekap_laporan/serabut_kelapa', [RekapController::class, 'serabut_ke
 Route::get('/rekap_laporan/air_kelapa', [RekapController::class, 'air_kelapa'])->name('rekap_laporan.air_kelapa');
 
 
+Route::get('/card_stock/santan', [StockController::class, 'santan'])->name('card_stock.santan');
 Route::get('/card_stock/dkp', [StockController::class, 'dkp'])->name('card_stock.dkp');
 Route::get('/card_stock/kopra_kering', [StockController::class, 'kopra_kering'])->name('card_stock.kopra_kering');
 Route::get('/card_stock/kopra_basah', [StockController::class, 'kopra_basah'])->name('card_stock.kopra_basah');
 Route::get('/card_stock/minyak_kelapa', [StockController::class, 'minyak_kelapa'])->name('card_stock.minyak_kelapa');
+Route::get('/card_stock/air_kelapa', [StockController::class, 'air_kelapa'])->name('card_stock.air_kelapa');
 Route::get('/card_stock/tempurung_basah', [StockController::class, 'tempurung_basah'])->name('card_stock.tempurung_basah');
 Route::get('/card_stock/kulit_ari_kering', [StockController::class, 'kulit_ari_kering'])->name('card_stock.kulit_ari_kering');
 require __DIR__.'/auth.php';

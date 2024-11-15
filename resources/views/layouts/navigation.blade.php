@@ -223,8 +223,8 @@
         <div class="dropdown-container">
             <a href="{{ route ('card_stock.dkp') }}">DKP</a>
             <a href="#link2">Kelapa Bulat</a>
-            <a href="#link3">Santan</a>
-            <a href="#link4">Air Kelapa</a>
+            <a href="{{ route ('card_stock.santan') }}">Santan</a>
+            <a href="{{ route ('card_stock.air_kelapa') }}">Air Kelapa</a>
             <a href="{{ route ('card_stock.kulit_ari_kering') }}">Kulit Ari Kering</a>
             <a href="{{ route ('card_stock.minyak_kelapa') }}">Minyak Kelapa</a>
             <a href="{{ route ('card_stock.kopra_kering') }}">Kopra Kering</a>
