@@ -252,7 +252,7 @@
 <div class="mainbar">
     <div class="container">
         <div class="header">
-            <h2>Card Stock Air Kelapa</h2>
+            <h2>Card Stock Santan</h2>
         </div>
 
         <!-- Filter Section -->
