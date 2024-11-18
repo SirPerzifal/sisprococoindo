@@ -299,7 +299,7 @@ table td button.delete {
     background-color: #D9D9D9;
     margin: auto;
     padding: 20px;
-    width: 70%;
+    width: 60%;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 90%;

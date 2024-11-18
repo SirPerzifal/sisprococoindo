@@ -163,6 +163,13 @@
 .sidebar::-webkit-scrollbar-track {
     background-color: #104367;
 }
+
+.user-folder {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+}
+
 </style>
 <div class="flex h-screen">
     <!-- Sidebar -->
@@ -234,6 +241,12 @@
             <a href="#link7">DC Yellow-Reject</a>
             <a href="#link5">Pemakaian Kelapa Bulat</a>
         </div>
+
+        <a href="{{ route ('data_pegawai') }}">
+            <button class="dropdown-btn">
+                <img class="user-folder" src="https://img.icons8.com/material/24/user-folder.png" alt="user-folder"/>Data Pegawai
+            </button>
+        </a>
     </div>
     </aside>
 
@@ -244,12 +257,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex">
-                        <!-- Logo -->
-                      
-                        <!-- Navigation Links -->
-                      
-                            <!-- Tambah link lain jika dibutuhkan -->
-                        
+                   
                     </div>
 
                     <!-- Settings Dropdown -->
