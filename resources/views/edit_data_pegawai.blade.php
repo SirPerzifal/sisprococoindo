@@ -8,8 +8,7 @@
     background-color: #D9D9D9 !important;
     padding-top: 20px; /* Jarak dari topbar */
     margin-left: 235px;
-    overflow-y: auto;
-    height: calc(100vh - 70px);
+    height: 100vh;
     width: calc(100% - 235px);
     font-family: 'Inter', sans-serif; !important;
 }
@@ -19,8 +18,9 @@
     background-color:#F7F7F7;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-    width: 95%;
-    margin-left: 35px;
+    width: 94%;
+    height: 97%;
+    margin-left: 40px;
     font-family: 'Inter', sans-serif;
 }
 
@@ -66,6 +66,7 @@
 
 .form-inputs {
     flex: 2;
+    
 }
 
 .profile-picture {
@@ -95,6 +96,7 @@
 .form-group {
     display: flex;
     flex-direction: column;
+    margin-left: 10px;
 }
 
 .form-group label {
@@ -105,6 +107,7 @@
 }
 
 .form-group input {
+    width: :75%;
     padding: 8px;
     font-size: 12px;
     border: 1px solid #ccc;
@@ -112,11 +115,12 @@
     background-color: #f9f9f9;
     color: #636362;
     font-weight: 400;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Tombol Update */
 .btn-update {
-    width: 100%;
+    width: 98%;
     padding: 8px;
     background-color: #0e4375;
     color: #fff;
@@ -124,7 +128,8 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-  
+    margin-left: 10px;
+    text-align: center; 
 }
 
 .btn-update:hover {
@@ -147,44 +152,44 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="tgl-join">Tgl Join</label>
-                                <input type="text" id="tgl-join" value="12 September 2024" readonly>
+                                <input type="text" id="tgl-join" value="12 September 2024" >
                             </div>
                             <div class="form-group">
                                 <label for="tgl-out">Tgl Out</label>
-                                <input type="text" id="tgl-out" value="12 September 2024" readonly>
+                                <input type="text" id="tgl-out" value="12 September 2024" >
                             </div>
                         </div>
         
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Nama Lengkap</label>
-                                <input type="text" id="name" value="Marcella Corazon" readonly>
+                                <input type="text" id="name" value="Marcella Corazon" >
                             </div>
                             <div class="form-group">
                                 <label for="id">ID Pegawai</label>
-                                <input type="text" id="id" value="CAS234" readonly>
+                                <input type="text" id="id" value="CAS234" >
                             </div>
                         </div>
         
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="position">Posisi</label>
-                                <input type="text" id="position" value="Operator" readonly>
+                                <input type="text" id="position" value="Operator" >
                             </div>
                             <div class="form-group">
                                 <label for="department">Departemen</label>
-                                <input type="text" id="department" value="Produksi" readonly>
+                                <input type="text" id="department" value="Produksi" >
                             </div>
                         </div>
         
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="status-kepegawaian">Status Kepegawaian</label>
-                                <input type="text" id="status-kepegawaian" value="PKWT" readonly>
+                                <input type="text" id="status-kepegawaian" value="PKWT" >
                             </div>
                             <div class="form-group">
                                 <label for="status">Status</label>
-                                <input type="text" id="status" value="Aktif" readonly>
+                                <input type="text" id="status" value="Aktif" >
                             </div>
                         </div>
         
@@ -214,4 +219,4 @@
 <script>
 
 
-</script>
+</script> 

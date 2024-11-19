@@ -7,6 +7,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\StockController;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -15,11 +16,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+/*Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+});*/
 
 Route::get('/laporan/dkp', [LaporanController::class, 'dkp'])->name('laporan.dkp');
 Route::get('/laporan/kulitari', [LaporanController::class, 'kulitari'])->name('laporan.kulitari');
@@ -50,6 +51,7 @@ Route::get('/card_stock/kulit_ari_kering', [StockController::class, 'kulit_ari_k
 
 Route::get('/data_pegawai', [DatapegawaiController::class, 'data_pegawai'])->name('data_pegawai');
 Route::get('/edit_data_pegawai', [DatapegawaiController::class, 'edit_data_pegawai'])->name('edit_data_pegawai');
+Route::get('/tambah_data_pegawai', [DatapegawaiController::class, 'tambah_data_pegawai'])->name('tambah_data_pegawai');
 
 
 require __DIR__.'/auth.php';

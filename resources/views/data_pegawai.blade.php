@@ -8,8 +8,8 @@
     background-color: #D9D9D9 !important;
     padding-top: 20px; /* Jarak dari topbar */
     margin-left: 235px;
-    overflow-y: auto;
-    height: calc(100vh - 70px);
+   overflow -y: auto;
+   height: calc(100vh - 70px);
     width: calc(100% - 235px);
     font-family: 'Inter', sans-serif; !important;
 }
@@ -146,7 +146,7 @@ table th, table td {
     text-align: center;
     border: 1px solid #636362; /* Garis antar sel */
     color: #636362;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 table th {
@@ -154,13 +154,13 @@ table th {
 }
 
 table td button {
-    padding: 8px 12px;
+    padding: 8px 10px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     background-color: #104367;
     color: white;
-    font-size: 12px;
+    font-size: 11px;
     
 }
 
@@ -269,24 +269,15 @@ table td button.delete {
     color: #636362; /* Ganti dengan warna yang diinginkan */
     opacity: 1; /* Mengatur opasitas jika perlu */
 }
-button.status.aktif {
-    background-color: #71bc74; /* Hijau untuk aktif */
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-button.status.nonaktif {
-    background-color: #e74c3c; /* Merah untuk nonaktif */
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
+.fixed-width {
+    width: 60px; /* Anda bisa menyesuaikan lebar sesuai kebutuhan */
+    max-width: 60px; /* Membatasi lebar maksimum */
+    min-width: 50px; /* Membatasi lebar minimum */
+    white-space: nowrap; /* Mencegah teks untuk wrap ke baris baru */
+    overflow: hidden; /* Menyembunyikan teks yang melebihi lebar kolom */
+    text-overflow: ellipsis; /* Mengganti teks yang terpotong dengan elipsis (...) */
 }
-
 </style>
 
 <div class="mainbar">
@@ -313,8 +304,9 @@ button.status.nonaktif {
                 <button class="btn export">
                    <img width="10" height="10" src="https://img.icons8.com/forma-thin/24/export.png" alt="export"/> Export
                 </button>
-                
-                <button id="openFormBtn" class="btn add">+ Tambah Data</button>
+         
+
+              <a href="{{ route ('tambah_data_pegawai') }}"><button id="openFormBtn" class="btn add">+ Tambah Data</button></a>
             </div>
         </div>
 
@@ -325,13 +317,13 @@ button.status.nonaktif {
                 <thead>
                     <tr>
                         <th>NO</th>
-                        <th>TGL JOIN</th>
-                        <th>TGL OUT</th>
+                        <th class="fixed-width">TGL JOIN</th>
+                        <th class="fixed-width">TGL OUT</th>
                         <th>ID Pegawai</th>
                         <th>Nama Pegawai</th>
                         <th>Posisi</th>
                         <th>Departemen</th>
-                        <th>Status Kepegawaian</th>
+                        <th>Kontrak Pegawai</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -339,10 +331,10 @@ button.status.nonaktif {
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>12 Agustus 2024</td>
-                        <td>25 Agustus 2024</td>
+                        <td>12/10/2024</td>
+                        <td>25/11/2024</td>
                         <td>CAS342</td>
-                        <td>Marcella Corazon</td>
+                        <td>Marcella Corazon Sasmita </td>
                         <td>Operator</td>
                         <td>Produksi</td>
                         <td>PKWT</td>
@@ -355,8 +347,8 @@ button.status.nonaktif {
                     <!-- Tambah data lainnya -->
                     <tr>
                         <td>2</td>
-                        <td>12 Agustus 2024</td>
-                        <td>25 Agustus 2024</td>
+                        <td>12/08/2024</td>
+                        <td>25/08/2024</td>
                         <td>CAS349</td>
                         <td>Lylia Sasmita</td>
                         <td>Sheller</td>
@@ -364,7 +356,7 @@ button.status.nonaktif {
                         <td>PROYEK</td>
                         <td> <button class="">aktif</button></td>
                         <td> 
-                            <button class="edit">Edit</button>
+                            <a href="{{ route ('edit_data_pegawai') }}"><button class="edit">Edit</button></a>
                             <button class="delete">Delete</button>
                         </td>
                     </tr>

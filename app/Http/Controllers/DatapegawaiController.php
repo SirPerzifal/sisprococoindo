@@ -15,4 +15,9 @@ class DatapegawaiController extends Controller
     {
         return view('edit_data_pegawai');
     }
+    public function tambah_data_pegawai()
+    {
+        return view('tambah_data_pegawai');
+    }
+
 }
