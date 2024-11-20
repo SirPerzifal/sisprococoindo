@@ -2,8 +2,7 @@
 
 @section('content')
 <style>
-    /* Mainbar */
-    .mainbar {
+.mainbar {
     flex: 1%;
     background-color: #D9D9D9 !important;
     padding-top: 20px; /* Jarak dari topbar */
@@ -62,9 +61,6 @@
     color: #636362;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
-     
-   
-
 /* Input pencarian dan ikon */
 .filters .input-icon {
     position: relative;
@@ -87,8 +83,8 @@
 }
 .search-input{
     transform: translateY(-5px);
-    
 }
+
 .filters .input-icon i {
     position: absolute;
     padding-right: 10px;
@@ -241,27 +237,28 @@ table td button.delete {
     border-color: #104367; /* Ubah warna border saat fokus */
 }
 
-        .horizontalline1 {
-        
+
+    .horizontalline1 {
+        /* Warna teks, tidak berpengaruh pada <hr> */
         border: none; /* Hapus border default */
         border-bottom: 0.5px solid #ccc;
-         width: 100%; /* Lebar penuh */
-         margin: 5px 0 15px 0; /* Margin atas, kanan, bawah, kiri */
+        width: 100%; /* Lebar penuh */
+        margin: 5px 0 15px 0; /* Margin atas, kanan, bawah, kiri */
         opacity: 0.5; /* Nilai opasitas (1 = tidak transparan) */
         padding-top: 20px;
 }
 
-        .btn.export {
+    .btn.export {
         display: flex;
         align-items: center; /* Mengatur ikon dan teks dalam satu baris */
         color: white; /* Mengatur warna teks menjadi putih */
         border: none; /* Menghapus border default */
-      
+         /* Menambahkan padding */
         cursor: pointer; /* Menambahkan kursor pointer */
     }
 
      .btn.export img {
-    
+      /* Jarak antara ikon dan teks */  
         filter: brightness(0) invert(1);
       
    
@@ -294,6 +291,7 @@ table td button.delete {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 800px; /* Batas maksimal lebar modal */
     width: 100%;
+    overflow-y: auto;
 }
 
 .modal-content {
@@ -307,8 +305,10 @@ table td button.delete {
     max-width: 90%;
     display: flex;
     flex-direction: column;
-    max-height: 100vh;
+    height: auto;
+    overflow-y: auto;
 }
+    
 .modal-header{
     margin-bottom: 15px;
     display: flex;
@@ -331,13 +331,17 @@ table td button.delete {
 }
 
 .form-item {
-    width:90%; /* Menjaga kedua form-item (Total Keranjang dan Tipe Keranjang) agar seimbang */
+    display: flex;
+    flex-direction: column; /* Susunan vertikal */
+    align-items: flex-start; /* Label dan input sejajar ke kiri */
+    width: 100%;
 }
 
 .form-group {
     display: flex;
     flex-wrap: wrap;
-    justify-content: row;
+    justify-content: flex-start; /* Elemen sejajar ke kiri */
+    align-items: flex-start;
     gap: 20px;
     margin-bottom: 20px;
     margin-left: 10px;
@@ -349,35 +353,36 @@ table td button.delete {
     justify-content: flex-end;
     align-items: center;
     margin-left: auto; 
-    flex-wrap: wrap;
+    margin-top:5px;
+ 
    
 }
 .inline-group label {
     font-size: 14px;
     color: #636362;
     margin-right: 5px;
-    white-space: nowrap; /* Mencegah label memotong */
 }
+
 .inline-group select {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .inline-group input[type="text"],
 .inline-group select {
-    width: 100%;
+    width: 100%; /* Input dan select mengisi penuh */
+    flex: none;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 13px;
     color: #636362;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    margin-top:5px;
 }
-
-
 /* To make the inline group take up full width */
 .full-width {
     width: 100%;
 }
+
 label {
     font-size: 14px;
     margin-bottom: 5px;
@@ -388,6 +393,7 @@ label {
 .inline-group input[type="date"]{
     width: 90%;
 }
+
 input[type="text"],
 input[type="number"],
 input[type="date"] {
@@ -399,12 +405,14 @@ input[type="date"] {
     font-size: 14px;
    
 }
+
 input[type="text"],
 input[type="number"]::placeholder,
 input[type="date"]::placeholder {
     color: #636362;
     opacity: 1; 
 }
+
 input[type="text"],
 input[type="number"],
 input[type="date"] {
@@ -492,6 +500,7 @@ input[type="date"] {
    
 }
 
+
 .modal2 {
             display: none;
             justify-content: center;
@@ -505,10 +514,7 @@ input[type="date"] {
             left: 0;
             overflow: auto;
         }
-        .modal2.visible{
-            display: flex; /* Ganti menjadi flex saat ditampilkan */
-           }
-
+       
         
 
         .modal-back2 {
@@ -710,19 +716,23 @@ input[type="date"] {
             font-size: 0.75em;
             display: block;
             float: right;
-        transform: translateX(-60px);
+            transform: translateX(-60px);
             margin-bottom: 15px;
         }
 
         .close-btn2:hover {
             background-color: #3f8d43;
         }
-
-        /* Mengubah warna teks tanggal */
-
-
-
-
+  .modal, .modal2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Pastikan cukup tinggi */
+}
 </style>
 
 <div class="mainbar">
@@ -775,8 +785,8 @@ input[type="date"] {
                         <td> S </td>
                         <td>50</td>
                         <td>150</td>
-                        <td>300</td>
-                        <td><button id="openModal2">Hasil Timbangan</button></td>
+                        <td>30 0</td>
+                        <td><button id="openFormBtn2">Hasil Timbangan</button></td>
                         <td>
                             <button class="edit">Edit</button>
                             <button class="delete">Delete</button>
@@ -986,59 +996,43 @@ input[type="date"] {
 
 @section('scripts')
 <script>
+// Modal 1
+const openFormBtn1 = document.getElementById("openFormBtn1");
+const modal1 = document.getElementById("modal");
+const closeModal1 = modal1.querySelector(".close");
 
-document.addEventListener('DOMContentLoaded', () => {
-    const modals = {
-        modal1: document.getElementById('modal'),
-        modal2: document.getElementById('modal2'),
-    };
-
-    const openButtons = {
-        openFormBtn: document.getElementById('openFormBtn'),
-        openModal2: document.getElementById('openModal2'),
-    };
-
-    const closeButtons = {
-        closeBtn1: document.querySelector('.close'),
-        closeBtn2: document.getElementById('closeModal2'),
-    };
-
-    function openModal(modal) {
-        modal.classList.add('visible');
-    }
-
-    function closeModal(modal) {
-        modal.classList.remove('visible');
-    }
-
-    // Event listeners for opening modals
-    if (openButtons.openFormBtn) {
-        openButtons.openFormBtn.addEventListener('click', () => openModal(modals.modal1));
-    }
-
-    if (openButtons.openModal2) {
-        openButtons.openModal2.addEventListener('click', () => openModal(modals.modal2));
-    }
-
-    // Event listeners for closing modals
-    if (closeButtons.closeBtn1) {
-        closeButtons.closeBtn1.addEventListener('click', () => closeModal(modals.modal1));
-    }
-
-    if (closeButtons.closeBtn2) {
-        closeButtons.closeBtn2.addEventListener('click', () => closeModal(modals.modal2));
-    }
-
-    // Close modal if user clicks outside of it
-    window.addEventListener('click', (event) => {
-        if (event.target === modals.modal1) {
-            closeModal(modals.modal1);
-        } else if (event.target === modals.modal2) {
-            closeModal(modals.modal2);
-        }
-    });
+openFormBtn1.addEventListener("click", function () {
+    modal1.style.display = "block";
 });
 
+closeModal1.addEventListener("click", function () {
+    modal1.style.display = "none";
+});
+
+window.addEventListener("click", function (event) {
+    if (event.target === modal1) {
+        modal1.style.display = "none";
+    }
+});
+
+// Modal 2
+const openFormBtn2 = document.getElementById("openFormBtn2");
+const modal2 = document.getElementById("modal2");
+const closeModal2 = document.getElementById("closeModal2");
+
+openFormBtn2.addEventListener("click", function () {
+    modal2.style.display = "block";
+});
+
+closeModal2.addEventListener("click", function () {
+    modal2.style.display = "none";
+});
+
+window.addEventListener("click", function (event) {
+    if (event.target === modal2) {
+        modal2.style.display = "none";
+    }
+});
 
 // Sample data
 const data = [

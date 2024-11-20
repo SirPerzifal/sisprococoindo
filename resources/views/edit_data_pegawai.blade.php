@@ -83,6 +83,7 @@
     object-fit: cover;
     border-radius: 10px;
     border: 2px solid #ccc;
+    transform: translateY(-20px);
 }
 
 /* Mengatur layout dua kolom menggunakan grid */
@@ -120,8 +121,9 @@
 
 /* Tombol Update */
 .btn-update {
-    width: 98%;
+    width: 20%;
     padding: 8px;
+    margin-top: 5px;
     background-color: #0e4375;
     color: #fff;
     border: none;
@@ -130,6 +132,7 @@
     font-size: 14px;
     margin-left: 10px;
     text-align: center; 
+    transform: translateX(220px);
 }
 
 .btn-update:hover {

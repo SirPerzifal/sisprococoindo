@@ -4,6 +4,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
       <!-- Alpine.js untuk toggle sidebar -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
 
@@ -169,6 +170,9 @@
     height: 24px;
     filter: invert(1);
 }
+.no_underline {
+  text-decoration: none;
+}
 
 </style>
 <div class="flex h-screen">
@@ -242,7 +246,7 @@
             <a href="#link5">Pemakaian Kelapa Bulat</a>
         </div>
 
-        <a href="{{ route ('data_pegawai') }}">
+        <a class="no_underline" href="{{ route ('data_pegawai') }}">
             <button class="dropdown-btn">
                 <img class="user-folder" src="https://img.icons8.com/material/24/user-folder.png" alt="user-folder"/>Data Pegawai
             </button>

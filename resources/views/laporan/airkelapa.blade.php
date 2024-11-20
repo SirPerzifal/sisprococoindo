@@ -2,8 +2,8 @@
 
 @section('content')
 <style>
-    /* Mainbar */
-    .mainbar {
+  
+  .mainbar {
     flex: 1%;
     background-color: #D9D9D9 !important;
     padding-top: 20px; /* Jarak dari topbar */
@@ -238,18 +238,18 @@ table td button.delete {
     border-color: #104367; /* Ubah warna border saat fokus */
 }
 
-/* Modal container */
-        .horizontalline1 {
+
+    .horizontalline1 {
         /* Warna teks, tidak berpengaruh pada <hr> */
         border: none; /* Hapus border default */
         border-bottom: 0.5px solid #ccc;
-         width: 100%; /* Lebar penuh */
-         margin: 5px 0 15px 0; /* Margin atas, kanan, bawah, kiri */
+        width: 100%; /* Lebar penuh */
+        margin: 5px 0 15px 0; /* Margin atas, kanan, bawah, kiri */
         opacity: 0.5; /* Nilai opasitas (1 = tidak transparan) */
         padding-top: 20px;
 }
 
-        .btn.export {
+    .btn.export {
         display: flex;
         align-items: center; /* Mengatur ikon dan teks dalam satu baris */
         color: white; /* Mengatur warna teks menjadi putih */
@@ -269,8 +269,9 @@ table td button.delete {
     opacity: 1; /* Mengatur opasitas jika perlu */
 }
 
+
 .modal {
-    display: flex;
+    display: none;
     position: fixed;
     z-index: 999;
     left: 0;
@@ -291,6 +292,7 @@ table td button.delete {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 800px; /* Batas maksimal lebar modal */
     width: 100%;
+    overflow-y: auto;
 }
 
 .modal-content {
@@ -304,8 +306,10 @@ table td button.delete {
     max-width: 90%;
     display: flex;
     flex-direction: column;
-    max-height: 100vh;
+    height: auto;
+    overflow-y: auto;
 }
+    
 .modal-header{
     margin-bottom: 15px;
     display: flex;
@@ -329,14 +333,16 @@ table td button.delete {
 
 .form-item {
     display: flex;
-    align-items: center;
-    width:90%; /* Menjaga kedua form-item (Total Keranjang dan Tipe Keranjang) agar seimbang */
+    flex-direction: column; /* Susunan vertikal */
+    align-items: flex-start; /* Label dan input sejajar ke kiri */
+    width: 100%;
 }
 
 .form-group {
     display: flex;
     flex-wrap: wrap;
-    justify-content: row;
+    justify-content: flex-start; /* Elemen sejajar ke kiri */
+    align-items: flex-start;
     gap: 20px;
     margin-bottom: 20px;
     margin-left: 10px;
@@ -348,32 +354,31 @@ table td button.delete {
     justify-content: flex-end;
     align-items: center;
     margin-left: auto; 
-    flex-wrap: wrap;
+    margin-top:5px;
+ 
    
 }
 .inline-group label {
     font-size: 14px;
     color: #636362;
-    margin-right: 20px;
-    white-space: nowrap; /* Mencegah label memotong */
+    margin-right: 5px;
 }
+
 .inline-group select {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .inline-group input[type="text"],
 .inline-group select {
-    width: 100%;
-    flex: 1;
+    width: 100%; /* Input dan select mengisi penuh */
+    flex: none;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 13px;
     color: #636362;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    margin-top:5px;
 }
-
-
 /* To make the inline group take up full width */
 .full-width {
     width: 100%;
@@ -495,6 +500,7 @@ input[type="date"] {
     transform: translateY(-10px);
    
 }
+
     
 
 </style>
@@ -521,7 +527,7 @@ input[type="date"] {
                    <img width="10" height="10" src="https://img.icons8.com/forma-thin/24/export.png" alt="export"/> Export
                 </button>
                 
-                <button id="openFormBtn" class="btn add">+ Tambah Data</button>
+                <button id="openFormBtn1" class="btn add">+ Tambah Data</button>
             </div>
         </div>
 
@@ -701,7 +707,24 @@ input[type="date"] {
 
 @section('scripts')
 <script>
+//Modal 1
+const openFormBtn1 = document.getElementById("openFormBtn1");
+const modal1 = document.getElementById("modal");
+const closeModal1 = modal1.querySelector(".close");
 
+openFormBtn1.addEventListener("click", function () {
+    modal1.style.display = "block";
+});
+
+closeModal1.addEventListener("click", function () {
+    modal1.style.display = "none";
+});
+
+window.addEventListener("click", function (event) {
+    if (event.target === modal1) {
+        modal1.style.display = "none";
+    }
+});
 // Sample data
 const data = [
     { no: 1, tanggal: "12 Agustus 2024", nama: "Marcella", sp: "S", bruto: 50, potongan: 0, hasil: 150, detail: "Hasil Timbangan" },
@@ -770,65 +793,7 @@ function goToPage(page) {
 // Load initial data
 displayData();
 
-    // Ambil elemen modal dan tombol
-    var modal = document.getElementById("modal");
-    var btn = document.get
-
-
-// Menambahkan event listener untuk tombol tambah anggota
-document.querySelector('.add-member-btn').addEventListener('click', function() {
-// Hitung jumlah anggota parer yang sudah ada
-var currentCount = document.querySelectorAll('.anggota-block').length; 
-
-// Nomor anggota parer berikutnya
-var nextNumber = currentCount + 1;
-
-// Buat elemen HTML untuk blok baru
-var newBlock = `
-    <div class="anggota-block">
-         <div class="form-row">
-        <div class="form-group">
-            <label for="anggota-parer${nextNumber}">Anggota Parer ${nextNumber}</label>
-            <input type="text" class="kotak" id="anggota-parer${nextNumber}" placeholder="Nama Anggota Parer">
-        </div>
-
-        
-            <div class="form-group">
-                <label for="total-keranjang${nextNumber}">Total Keranjang</label>
-                <input type="number"  class="kotak" id="total-keranjang${nextNumber}" min="0">
-            </div>
-            <div class="form-group">
-                <label for="tipe-keranjang${nextNumber}">Tipe Keranjang</label>
-                <select id="tipe-keranjang${nextNumber}" class="custom-select">
-                    <option value="A">Keranjang Besar</option>
-                    <option value="B">Keranjang Kecil</option>
-        
-                </select>
-            </div>
-        </div>
-        <span class="label-timbangan">Hasil Timbangan Air Kelapa</span>
-        <div class="basket-container">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-            <input class="basket-input" type="text" value="">
-        </div>
-      <hr class="hori-line">  
-    </div>
-    
-`;
-
-// Tambahkan blok baru ke dalam anggota-parer-container
-document.querySelector('#anggota-parer-container').insertAdjacentHTML('beforeend', newBlock);
-});
+  
 
 
 document.getElementById('tanggal-picker').addEventListener('change', function() {
@@ -841,25 +806,7 @@ console.log('Tanggal dipilih: ' + year + '-' + month + '-' + day);
 });
 
 
-// Ambil elemen modal dan tombol close
-var modal = document.getElementById('modal');
-var openFormBtn = document.getElementById("openFormBtn");
-var closeBtn = document.querySelector('.close');
 
-// Fungsi untuk menutup modal
-function closeModal() {
-modal.style.display = 'none';
-}
-
-// Event listener untuk tombol close
-closeBtn.addEventListener('click', closeModal);
-
-// Opsional: Menutup modal ketika area luar modal diklik
-window.addEventListener('click', function(event) {
-if (event.target == modal) {
-    closeModal();
-}
-});
 
 
 

@@ -4,24 +4,25 @@
 <style>
     /* Mainbar */
 .mainbar {
-    flex: 1%;
+    flex: 1;
+    flex-grow: 1;
     background-color: #D9D9D9 !important;
     padding-top: 20px; /* Jarak dari topbar */
-    margin-left: 235px;
-    height: 100vh;
-    width: calc(100% - 235px);
+    margin-left: 255px;
+    height: 100%;
+    width: calc(100%-235px);
     font-family: 'Inter', sans-serif; !important;
 }
 
 .container {
     padding: 20px;
-    background-color:#F7F7F7;
+    background-color: #F7F7F7;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-    width: 94%;
-    height: 97%;
-    margin-left: 40px;
+    width: calc(100% - 80px);
+    margin: 20px auto;
     font-family: 'Inter', sans-serif;
+    flex-grow: 1; /* Agar container meregang sesuai konten */
 }
 
 .header {
@@ -34,13 +35,13 @@
 
 .header h2 {
     font-size: 16px;
-    margin: 0;
+    margin: 0 auto;
     color: #636362;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
     text-align: center;
-    transform: translateX(375px);
+    
 }
 
 .profile-pic img {
@@ -74,6 +75,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 /* Gambar foto profil */
@@ -118,99 +120,35 @@
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Tombol Update */
-.btn-update {
-    width: 98%;
-    padding: 8px;
-    background-color: #0e4375;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.custom-dropdown {
+    width: 100%;
+    padding: 10px;
     font-size: 14px;
-    margin-left: 10px;
-    text-align: center; 
-}
-
-.btn-update:hover {
-    background-color: #063361;
-}
-
-.custom-select {
-    position: relative;
     font-family: 'Inter', sans-serif;
-}
-
-.custom-select select {
-    display: none; /* Hides the original select element */
-}
-
-/* Styled container */
-.select-selected {
+    border: 1px solid #ccc;
+    border-radius: 5px;
     background-color: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
     color: #636362;
-    position: relative;
-    text-align: left;
-    width: 100%;
-}
-
-.select-selected:after {
-    content: "\25BC"; /* Down arrow */
-    font-size: 14px;
-    color: #636362;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-/* Dropdown Items (Hidden by Default) */
-.select-items {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    z-index: 99;
-    max-height: 200px;
-    overflow-y: auto;
-    width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.select-items div {
-    padding: 10px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #636362;
-}
-
-.select-items div:hover {
-    background-color: #e9e9e9;
-}
-
-/* Show Dropdown when active */
-.select-selected.select-arrow-active + .select-items {
-    display: block;
-}
-.custom-select select {
-    display: none; /* Menyembunyikan elemen asli */
-}
-.select-selected {
+    appearance: none; /* Hilangkan tanda panah bawaan browser */
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns%3D%22http://www.w3.org/2000/svg%22 width%3D%228%22 height%3D%228%22 viewBox%3D%220 0 8 8%22%3E%3Cpath d%3D%22M0 2l4 4 4-4H0z%22 fill%3D%22%23636362%22/%3E%3C/svg%3E'); /* Ikon panah bawah */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
     cursor: pointer;
 }
-.select-items {
-    max-height: 200px;
-    overflow-y: auto;
+
+/* Fokus pada elemen dropdown */
+.custom-dropdown:focus {
+    outline: none;
+    border-color: #636362;
 }
-.select-hide {
-    display: none;
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 15px;
 }
+
+
 .profile-picture {
     display: flex;
     flex-direction: column; /* Mengatur elemen di dalamnya berurutan secara vertikal */
@@ -234,14 +172,169 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
 }
 
 .btn-update-foto:hover {
     background-color: #063361;
 }
+.btn-preview {
+    padding: 8px;
+    width:20%;
+    background-color: #0e4375;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+   
+}
 
+.btn-update {
+    width: 20%;
+    padding: 10px 20px;
+    background-color: #0e4375;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 10px;
+    text-align: center; 
+}
+
+.btn-update:hover {
+    background-color: #063361;
+}
+
+.btn-preview:hover {
+    background-color: #063361;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Posisi tombol di ujung kanan */
+    gap: 10px; /* Jarak antara tombol */
+    margin-top: 20px; /* Jarak dari elemen sebelumnya */
+}
+
+
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 
+}
+
+.modal-header {
+    background-color: #f7f7f7;
+    color: #fff;
+    border-bottom: 2px blur #565655;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.modal-title {
+    font-size: 16px;
+    color: #636362;
+    margin:0 auto;
+    transform: translateX(100px);
+}
+
+.btn-close {
+    color: #fff;
+    background: none;
+    border: none;
+    opacity: 1;
+}
+
+.modal-body {
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+}
+
+.table {
+    width: 100%;
+    margin: 0;
+    background-color: #f9f9f9;
+    border-collapse: collapse;
+    border-radius: 10px;
+    margin-left: 5px;
+  
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    text-align: left;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    width: auto; /* Lebar mengikuti konten */
+    word-break: break-word;
+}
+
+.table th {
+    background-color: #fff;
+    color: #636362;
+    font-size: 12px;
+    font-weight: 200 !important;
+    
+}
+
+.table td {
+    color: #636362;
+    background-color: #fff;
+    font-size: 12px;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #ccc;
+    
+}
+
+img#preview-foto {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 2px;
+    max-height: 200px;
+    margin-top: 1rem;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+transform: translateX(10px);
+}
+
+.modal-footer {
+    background-color: #f9f9f9;
+   
+   
+}
+
+.btn-secondary {
+    background-color: #0e4375;
+    border-color: #6c757d;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin: 0 auto;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+.fixed-width {
+    width: 60px; /* Anda bisa menyesuaikan lebar sesuai kebutuhan */
+    max-width: 60px; /* Membatasi lebar maksimum */
+    min-width: 50px; /* Membatasi lebar minimum */
+    white-space: nowrap; /* Mencegah teks untuk wrap ke baris baru */
+    overflow: hidden; /* Menyembunyikan teks yang melebihi lebar kolom */
+    text-overflow: ellipsis; /* Mengganti teks yang terpotong dengan elipsis (...) */
+}
 </style>
 
 <div class="mainbar">
@@ -281,48 +374,43 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="position">Posisi</label>
-                                <div class="custom-select">
-                                    <div class="select-selected">Pilih Posisi</div>
-                                    <div class="select-items">
-                                        <div>Operator</div>
-                                        <div>Helper</div>
-                                        <div>Sheller</div>
-                                        <div>Parer</div>
-                                        <div>HR</div>
-                                        <div>Accounting</div>
-                                        <div>Accounting Manager</div>
-                                        <div>Production Manager</div>
-                                        <div>Purchasing Staff</div>
-                                        <div>Admin Gudang</div>
-                                        <div>Admin Production</div>
-                                    </div>
-                                </div>
+                                <select id="position" name="position" class="custom-dropdown">
+                                    <option value="" disabled selected>Pilih Posisi</option>
+                                    <option value="Operator">Operator</option>
+                                    <option value="Helper">Helper</option>
+                                    <option value="Sheller">Sheller</option>
+                                    <option value="Parer">Parer</option>
+                                    <option value="HR">HR</option>
+                                    <option value="Accounting">Accounting</option>
+                                    <option value="Accounting Manager">Accounting Manager</option>
+                                    <option value="Production Manager">Production Manager</option>
+                                    <option value="Purchasing Staff">Purchasing Staff</option>
+                                    <option value="Admin Gudang">Admin Gudang</option>
+                                    <option value="Admin Production">Admin Production</option>
+                                </select>
                             </div>
+
                             <div class="form-group">
                                 <label for="department">Departemen</label>
-                                <div class="custom-select">
-                                    <div class="select-selected">Pilih Departemen</div>
-                                    <div class="select-items">
-                                        <div>Kupas Kelapa</div>
-                                        <div>Produksi</div>
-                                        <div>Office</div>
-                                    </div>
-                                </div>
+                                <select id="department" name="department" class="custom-dropdown">
+                                    <option value="" disabled selected>Pilih Departemen</option>
+                                    <option value="Kupas Kelapa">Kupas Kelapa</option>
+                                    <option value="Produksi">Produksi</option>
+                                    <option value="Office">Office</option>
+                                </select>
                             </div>
                         </div>
         
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="status-kepegawaian">Status Kepegawaian</label>
-                                <div class="custom-select">
-                                    <div class="select-selected">Pilih Status</div>
-                                    <div class="select-items">
-                                        <div>PKWT</div>
-                                        <div>KKWT</div>
-                                        <div>Proyek</div>
-                                        <div>Permanent</div>
-                                    </div>
-                                </div>
+                                <select id="status-kepegawaian" name="status-kepegawaian" class="custom-dropdown">
+                                    <option value="" disabled selected>Pilih Status</option>
+                                    <option value="PKWT">PKWT</option>
+                                    <option value="KKWT">KKWT</option>
+                                    <option value="Proyek">Proyek</option>
+                                    <option value="Permanent">Permanent</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="status">Status</label>
@@ -330,7 +418,10 @@
                             </div>
                         </div>
         
-                        <button type="submit" class="btn-update">Tambah</button>
+                        <div class="button-container">
+                            <button type="button" class="btn-preview" id="btn-preview" data-bs-toggle="modal" data-bs-target="#previewModal">Preview</button>
+                            <button type="submit" class="btn-update">Tambah</button>
+                        </div>
                     </div>
         
                     <!-- Bagian kanan (Foto Profil) -->
@@ -338,7 +429,7 @@
                         <img src="{{asset('img/hi logo.png') }}" alt="Foto Profil" id="profile-image">
                         <input type="file" id="profile-input" accept="image/*" style="display: none;">
                         <button type="button" class="btn-update-foto" id="change-profile-btn">Ganti Profil</button>
-                        <button type="button" class="btn btn-primary" id="btn-preview" data-bs-toggle="modal" data-bs-target="#previewModal">Preview</button>
+   
                     </div>
                 </div>
             </form>
@@ -359,35 +450,35 @@
                         <!-- Tampilkan Data Pegawai -->
                         <table class="table table-bordered">
                             <tr>
-                                <th>Tanggal Join</th>
+                                <th class="fixed-width">Tanggal Join</th>
                                 <td id="preview-tgl-join">-</td>
                             </tr>
                             <tr>
-                                <th>Tanggal Out</th>
+                                <th class="fixed-width">Tanggal Out</th>
                                 <td id="preview-tgl-out">-</td>
                             </tr>
                             <tr>
-                                <th>Nama Lengkap</th>
+                                <th class="fixed-width">Nama Lengkap</th>
                                 <td id="preview-nama">-</td>
                             </tr>
                             <tr>
-                                <th>ID Pegawai</th>
+                                <th class="fixed-width">ID Pegawai</th>
                                 <td id="preview-id">-</td>
                             </tr>
                             <tr>
-                                <th>Posisi</th>
+                                <th class="fixed-width">Posisi</th>
                                 <td id="preview-posisi">-</td>
                             </tr>
                             <tr>
-                                <th>Departemen</th>
+                                <th class="fixed-width">Departemen</th>
                                 <td id="preview-departemen">-</td>
                             </tr>
                             <tr>
-                                <th>Status Kepegawaian</th>
+                                <th class="fixed-width">Status Kepegawaian</th>
                                 <td id="preview-status-kepegawaian">-</td>
                             </tr>
                             <tr>
-                                <th>Status</th>
+                                <th class="fixed-width">Status</th>
                                 <td id="preview-status">-</td>
                             </tr>
                         </table>
@@ -404,6 +495,7 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </div>
 
 
@@ -411,75 +503,6 @@
 
 @section('scripts')
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    var x, i, j, selElmnt, a, b, c;
-    /* Look for any elements with the class "custom-select" */
-    x = document.getElementsByClassName("custom-select");
-    for (i = 0; i < x.length; i++) {
-        selElmnt = x[i].getElementsByTagName("select")[0];
-        /* Create a new DIV that will act as the selected item */
-        a = document.createElement("DIV");
-        a.setAttribute("class", "select-selected");
-        a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-        x[i].appendChild(a);
-        /* Create a new DIV that will contain the option list */
-        b = document.createElement("DIV");
-        b.setAttribute("class", "select-items select-hide");
-        for (j = 1; j < selElmnt.length; j++) {
-            /* Create a new DIV that will act as an option item */
-            c = document.createElement("DIV");
-            c.innerHTML = selElmnt.options[j].innerHTML;
-            c.addEventListener("click", function (e) {
-                /* Update the original select box and the selected item */
-                var y, i, k, s, h;
-                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                h = this.parentNode.previousSibling;
-                for (i = 0; i < s.length; i++) {
-                    if (s.options[i].innerHTML == this.innerHTML) {
-                        s.selectedIndex = i;
-                        h.innerHTML = this.innerHTML;
-                        y = this.parentNode.getElementsByClassName("same-as-selected");
-                        for (k = 0; k < y.length; k++) {
-                            y[k].removeAttribute("class");
-                        }
-                        this.setAttribute("class", "same-as-selected");
-                        break;
-                    }
-                }
-                h.click();
-            });
-            b.appendChild(c);
-        }
-        x[i].appendChild(b);
-        a.addEventListener("click", function (e) {
-            /* When the select box is clicked, close any other select boxes, and open/close the current one */
-            e.stopPropagation();
-            closeAllSelect(this);
-            this.nextSibling.classList.toggle("select-hide");
-            this.classList.toggle("select-arrow-active");
-        });
-    }
-    function closeAllSelect(elmnt) {
-        /* A function that will close all select boxes in the document, except the current select box */
-        var x, y, i, arrNo = [];
-        x = document.getElementsByClassName("select-items");
-        y = document.getElementsByClassName("select-selected");
-        for (i = 0; i < y.length; i++) {
-            if (elmnt == y[i]) {
-                arrNo.push(i);
-            } else {
-                y[i].classList.remove("select-arrow-active");
-            }
-        }
-        for (i = 0; i < x.length; i++) {
-            if (arrNo.indexOf(i)) {
-                x[i].classList.add("select-hide");
-            }
-        }
-    }
-    /* If the user clicks anywhere outside the select box, then close all select boxes */
-    document.addEventListener("click", closeAllSelect);
-});
 
 
 document.addEventListener('DOMContentLoaded', function () {
