@@ -93,8 +93,6 @@
     color:#636362;
 }
 
-
-
 /* Tombol aksi */
 .filters .actions {
     display: flex;
@@ -119,8 +117,12 @@
 .filters .actions .btn.add {
     background-color: #71bc74;
     transform: translateX(-2px);
+<<<<<<< HEAD
 
 
+=======
+    
+>>>>>>> a45905146b02b3e69a32b09a1e678e32a5488adb
 }
 
 .filters .actions .btn.export {
