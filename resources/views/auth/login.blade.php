@@ -3,11 +3,11 @@
                 <form id="loginForm" method="POST" action="{{ route('login') }}" class="space-y-6">
                     @csrf
                     <!-- Username Field -->
-                 
+
                     <div class="mb-4">
-                        <label for="username" class="block mb-2 text-sm font-medium text-gray-700">Username</label>
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-700">Nama</label>
                         <div class="relative">
-                            <input type="text" id="username" placeholder="Enter your username" required
+                            <input type="text" id="name" placeholder="Enter your username" required
                                 class="w-full px-10 py-3 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                         </div>
@@ -46,5 +46,5 @@
             </div>
         </div>
     </div>
-    
+
 </x-guest-layout>

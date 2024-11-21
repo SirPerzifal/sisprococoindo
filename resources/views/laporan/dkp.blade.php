@@ -3,7 +3,7 @@
 @extends('layouts.app')
 
 @section('content')
-    
+
 <style>
 /* Mainbar */
 .mainbar {
@@ -79,7 +79,7 @@
     border: 1px solid #cc;
     border-radius: 5px;
     font-size: 12px;
-    
+
 }
 
 .caridata{
@@ -119,14 +119,14 @@
 .filters .actions .btn.add {
     background-color: #71bc74;
     transform: translateX(-2px);
-    
-   
+
+
 }
 
 .filters .actions .btn.export {
     background-color: #e0b063;
     transform: translateX(-2px);
-    
+
 }
 /* Tabel */
 .table-container {
@@ -139,7 +139,7 @@ table {
     border-collapse: collapse; /* Agar garis antar sel menyatu */
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(230, 238, 241, 0.1);
-    
+
 }
 
 table th, table td {
@@ -162,7 +162,7 @@ table td button {
     background-color: #104367;
     color: white;
     font-size: 12px;
-    
+
 }
 
 table td button.edit {
@@ -239,7 +239,7 @@ table td button.delete {
     border-radius: 5px;
     font-size: 14px;
     outline: none;
-    
+
 }
 
 ./* Gaya untuk input saat fokus */
@@ -350,7 +350,7 @@ table td button.delete {
     flex-direction: row;
     text-align: center;
     justify-content: center;
-   
+
 }
 
 #anggota-parer1 {
@@ -453,7 +453,7 @@ table td button.delete {
     width: 15%;
     justify-content: right;
     color: #f5f5f5;
-    align-self: flex-end; 
+    align-self: flex-end;
 }
 
 .add-member-btn:hover {
@@ -553,7 +553,7 @@ table td button.delete {
             overflow: auto;
         }
         .modal-back2 {
-           
+
         background-color: #D9D9D9;
         margin: auto;
         padding: 20px;
@@ -572,7 +572,7 @@ table td button.delete {
             padding: 20px;
             background-color: #F7F7F7;
             border-radius: 10px;
-            flex: 1; 
+            flex: 1;
             margin-left: 5px;
             margin-right: 5px;
             margin-bottom: 3px;
@@ -638,7 +638,7 @@ table td button.delete {
             border-radius: 8px;
             font-size: 12px;
         }
-        
+
         .tabel-hasil2 th, .tabel-hasil2 td,
         .tabel-potongan2 th, .tabel-potongan2 td {
             border: 1px solid #ccc;
@@ -656,7 +656,7 @@ table td button.delete {
             transform: translateX(-30px);
             font-size: 12px;
         }
-        
+
         .tabel-potongan2 {
             margin-top: 15px;
             margin-right: 0;
@@ -694,7 +694,7 @@ table td button.delete {
             background-color: #3f8d43;
         }
 
-    
+
 </style>
 
 <div class="mainbar">
@@ -702,7 +702,7 @@ table td button.delete {
         <div class="header">
             <h2>Laporan Harian Hasil Kerja Sheller - Parer (DKP)</h2>
         </div>
-    
+
         <!-- Filter Section -->
         <div class="filters">
             <select class="pilihtanggal">
@@ -720,7 +720,7 @@ table td button.delete {
                 <button id="openFormBtn" class="btn add">+ Tambah Data</button>
             </div>
         </div>
-    
+
         <!-- Table Section -->
         <div class="table-container">
             <table>
@@ -754,16 +754,16 @@ table td button.delete {
                 </tbody>
             </table>
         </div>
-    
-       
+
+
         <!-- Pagination Section -->
         <hr class="horizontalline1">
         <div class="pagination-container">
-          
+
             <div class="showing-entries">
                 Showing <span id="start"></span> to <span id="end"></span> from <span id="total"></span> entries
             </div>
-            
+
             <ul class="pagination">
                 <li><button onclick="prevPage()">&#60;</button></li>
                 <li><button onclick="goToPage(1)">1</button></li>
@@ -774,17 +774,17 @@ table td button.delete {
             </ul>
         </div>
 
-    
+
         <!-- Modal -->
         <div id="modal" class="modal">
-           
+
             <div class="modal-content">
                 <div id="modal-back" class="modal-back">
                 <div class="modal-header">
                     <h2>FORM INPUT HASIL KERJA SHELLER - PARER ( DKP )</h2>
                     <span class="close">&times;</span>
                 </div>
-    
+
                 <div class="form-container">
                     <div class="form-row">
                         <div class="form-group">
@@ -794,13 +794,13 @@ table td button.delete {
                         <div class="form-group-total">
                             <label>Total: 250 kg</label>
                         </div>
-    
+
                         <div class="form-group">
                             <label for="tanggal-picker">Pilih Tanggal</label>
                             <input type="date" id="tanggal-picker">
                         </div>
                     </div>
-    
+
                     <!-- Container utama untuk anggota parer -->
                     <div id="anggota-parer-container">
                         <div class="anggota-block">
@@ -808,14 +808,14 @@ table td button.delete {
                                 <div class="form-group">
                                     <label for="anggota-parer1">Anggota Parer 1</label>
                                     <input type="text" class="kotak" id="anggota-parer1">
-                                    
+
                                 </div>
-                                
-    
+
+
                                 <div class="form-group">
                                     <label for="total-keranjang">Total Keranjang</label>
                                     <input type="number" class="kotak" id="total-keranjang" min="0">
-    
+
                                     <label for="tipe-keranjang">Tipe Keranjang</label>
                                     <select id="tipe-keranjang" class="custom-select">
                                         <option value="A">Keranjang Besar</option>
@@ -833,7 +833,7 @@ table td button.delete {
                             <hr class="hori-line">
                         </div>
                     </div>
-    
+
                     <div class="action-buttons">
                         <button class="add-member-btn" onclick="addAnggotaParer()">+ Anggota Parer</button>
                         <button class="submit-btn">Kirim</button>
@@ -851,7 +851,7 @@ table td button.delete {
                 <div class="header2">
                     <h2>Detail Hasil Timbangan Daging Kelapa Putih</h2>
                 </div>
-                
+
                 <!-- Nama Parer dan Potongan Keranjang (Bagian Pertama) -->
                 <div class="row2">
                     <div class="form-group2">
@@ -1016,7 +1016,7 @@ table td button.delete {
             modal.style.display = 'none';
         }
     });
-    
+
     function openModal2() {
         const modal2 = document.getElementById('modal2');
         modal2.style.display = 'block';
@@ -1066,14 +1066,14 @@ table td button.delete {
             </div>
             <hr class="hori-line">
         `;
-        
+
         anggotaBlock.innerHTML = formRow;
     container.appendChild(anggotaBlock);
-    
+
     anggotaCount++;
 
         }
-  
+
 
 </script>
 @endsection
