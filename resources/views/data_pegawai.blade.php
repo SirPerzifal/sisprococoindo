@@ -2,13 +2,14 @@
 
 @section('content')
 <style>
+    /* Mainbar */
 .mainbar {
     flex: 1%;
     background-color: #D9D9D9 !important;
     padding-top: 20px; /* Jarak dari topbar */
     margin-left: 235px;
-    overflow-y: auto;
-    height: calc(100vh - 70px);
+   overflow -y: auto;
+   height: calc(100vh - 70px);
     width: calc(100% - 235px);
     font-family: 'Inter', sans-serif; !important;
 }
@@ -49,6 +50,9 @@
     margin: 20px 0;
     font-size: 12px;
 }
+.filters select.pilihtanggal{
+    width: 140px !important;
+}
 
 /* Dropdown tanggal */
 .filters select.pilihtanggal,
@@ -81,6 +85,7 @@
 .caridata{
     color: #636362 !important;
 }
+
 
 .filters .input-icon i {
     position: absolute;
@@ -137,11 +142,11 @@ table {
 }
 
 table th, table td {
-    padding: 10px;
+    padding: 8px;
     text-align: center;
     border: 1px solid #636362; /* Garis antar sel */
     color: #636362;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 table th {
@@ -149,13 +154,13 @@ table th {
 }
 
 table td button {
-    padding: 8px 12px;
+    padding: 8px 10px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     background-color: #104367;
     color: white;
-    font-size: 12px;
+    font-size: 11px;
     
 }
 
@@ -210,12 +215,6 @@ table td button.delete {
     position: relative;
     width: 100%;
     max-width: 100px; /* Sesuaikan dengan kebutuhan */
-    color: #636362;
-}
-
-.search-input::placeholder {
-    color: #636362; /* Ganti dengan warna yang diinginkan */
-    opacity: 1; /* Mengatur opasitas jika perlu */
 }
 
 .input-icon i {
@@ -236,12 +235,12 @@ table td button.delete {
     
 }
 
-./* Gaya untuk input saat fokus */
 .input-icon input:focus {
     border-color: #104367; /* Ubah warna border saat fokus */
 }
 
-.horizontalline1 {
+/* Modal container */
+        .horizontalline1 {
         /* Warna teks, tidak berpengaruh pada <hr> */
         border: none; /* Hapus border default */
         border-bottom: 0.5px solid #ccc;
@@ -271,31 +270,43 @@ table td button.delete {
     opacity: 1; /* Mengatur opasitas jika perlu */
 }
 
+.fixed-width {
+    width: 60px; /* Anda bisa menyesuaikan lebar sesuai kebutuhan */
+    max-width: 60px; /* Membatasi lebar maksimum */
+    min-width: 50px; /* Membatasi lebar minimum */
+    white-space: nowrap; /* Mencegah teks untuk wrap ke baris baru */
+    overflow: hidden; /* Menyembunyikan teks yang melebihi lebar kolom */
+    text-overflow: ellipsis; /* Mengganti teks yang terpotong dengan elipsis (...) */
+}
 </style>
 
 <div class="mainbar">
     <div class="container">
         <div class="header">
-            <h2>Laporan Harian Hasil Tempurung Basah</h2>
+            <h2>Data Pegawai</h2>
         </div>
 
         <!-- Filter Section -->
         <div class="filters">
             <select class="pilihtanggal">
-                <option>Pilih Tanggal</option>
-                <option>12 Agustus 2024</option>
-                <option>13 Agustus 2024</option>
+                <option>Pilih Departemen</option>
+                <option>Kupas</option>
+                <option>Produksi</option>
+                <option>Office</option>
+                <option>IPAL</option>
+
             </select>
             <div class="input-icon">
-                <input type="text"  placeholder="Cari Data" class="search-input">
+                <input type="text" placeholder="Cari Data" class="search-input">
                 <i class="fas fa-search"></i> <!-- Ikon pencarian (search icon) -->
             </div>
             <div class="actions"> 
                 <button class="btn export">
                    <img width="10" height="10" src="https://img.icons8.com/forma-thin/24/export.png" alt="export"/> Export
                 </button>
-                
-                <button id="openFormBtn" class="btn add">+ Tambah Data</button>
+         
+
+              <a href="{{ route ('tambah_data_pegawai') }}"><button id="openFormBtn" class="btn add">+ Tambah Data</button></a>
             </div>
         </div>
 
@@ -305,37 +316,54 @@ table td button.delete {
             <table>
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Tanggal</th>
-                        <th>Bruto</th>
-                        <th>Tipe Keranjang</th>
-                        <th>Total Keranjang</th>
-                        <th>Netto</th>
-                        <th>Detail</th>
+                        <th>NO</th>
+                        <th class="fixed-width">TGL JOIN</th>
+                        <th class="fixed-width">TGL OUT</th>
+                        <th>ID Pegawai</th>
+                        <th>Nama Pegawai</th>
+                        <th>Posisi</th>
+                        <th>Departemen</th>
+                        <th>Kontrak Pegawai</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>12 Agustus 2024</td>
-                        <td>123</td>
-                        <td>Kecil</td>
-                        <td>50</td>
-                        <td>300</td>
-                        <td><button>Hasil Timbangan</button></td>
-                        <td>
-                            <button class="edit">Edit</button>
+                        <td>12/10/2024</td>
+                        <td>25/11/2024</td>
+                        <td>CAS342</td>
+                        <td>Marcella Corazon Sasmita </td>
+                        <td>Operator</td>
+                        <td>Produksi</td>
+                        <td>PKWT</td>
+                        <td><button class="">Nonaktif</button></td>
+                        <td> 
+                            <a href="{{ route ('edit_data_pegawai') }}"><button class="edit">Edit</button></a>
                             <button class="delete">Delete</button>
                         </td>
                     </tr>
                     <!-- Tambah data lainnya -->
+                    <tr>
+                        <td>2</td>
+                        <td>12/08/2024</td>
+                        <td>25/08/2024</td>
+                        <td>CAS349</td>
+                        <td>Lylia Sasmita</td>
+                        <td>Sheller</td>
+                        <td>Kupas</td>
+                        <td>PROYEK</td>
+                        <td> <button class="">aktif</button></td>
+                        <td> 
+                            <a href="{{ route ('edit_data_pegawai') }}"><button class="edit">Edit</button></a>
+                            <button class="delete">Delete</button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
         
-
-      
 
         <!-- Pagination Section -->
         <hr class="horizontalline1">
@@ -356,6 +384,9 @@ table td button.delete {
         </div>
 
 
+   
+    
+    <!-- Script to close the modal -->
     <script>
         document.querySelector('.close').addEventListener('click', function () {
             document.querySelector('.modal').style.display = 'none';
@@ -438,7 +469,6 @@ function goToPage(page) {
 
 // Load initial data
 displayData();
-
 
 
 </script>

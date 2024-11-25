@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\DatapegawaiController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\RekapController;
+use App\Http\Controllers\StockController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,6 +36,22 @@ Route::get('/rekap_laporan/kulit_ari', [RekapController::class, 'kulitari'])->na
 Route::get('/rekap_laporan/tempurung', [RekapController::class, 'tempurung'])->name('rekap_laporan.tempurung');
 Route::get('/rekap_laporan/serabut_kelapa', [RekapController::class, 'serabut_kelapa'])->name('rekap_laporan.serabut_kelapa');
 Route::get('/rekap_laporan/air_kelapa', [RekapController::class, 'air_kelapa'])->name('rekap_laporan.air_kelapa');
+
+
+Route::get('/card_stock/santan', [StockController::class, 'santan'])->name('card_stock.santan');
+Route::get('/card_stock/dkp', [StockController::class, 'dkp'])->name('card_stock.dkp');
+Route::get('/card_stock/kopra_kering', [StockController::class, 'kopra_kering'])->name('card_stock.kopra_kering');
+Route::get('/card_stock/kopra_basah', [StockController::class, 'kopra_basah'])->name('card_stock.kopra_basah');
+Route::get('/card_stock/minyak_kelapa', [StockController::class, 'minyak_kelapa'])->name('card_stock.minyak_kelapa');
+Route::get('/card_stock/air_kelapa', [StockController::class, 'air_kelapa'])->name('card_stock.air_kelapa');
+Route::get('/card_stock/tempurung_basah', [StockController::class, 'tempurung_basah'])->name('card_stock.tempurung_basah');
+Route::get('/card_stock/kulit_ari_kering', [StockController::class, 'kulit_ari_kering'])->name('card_stock.kulit_ari_kering');
+
+
+
+Route::get('/data_pegawai', [DatapegawaiController::class, 'data_pegawai'])->name('data_pegawai');
+Route::get('/edit_data_pegawai', [DatapegawaiController::class, 'edit_data_pegawai'])->name('edit_data_pegawai');
+Route::get('/tambah_data_pegawai', [DatapegawaiController::class, 'tambah_data_pegawai'])->name('tambah_data_pegawai');
 
 
 require __DIR__.'/auth.php';

@@ -2,6 +2,7 @@
 
 @section('content')
 <style>
+    /* Mainbar */
 .mainbar {
     flex: 1%;
     background-color: #D9D9D9 !important;
@@ -210,12 +211,6 @@ table td button.delete {
     position: relative;
     width: 100%;
     max-width: 100px; /* Sesuaikan dengan kebutuhan */
-    color: #636362;
-}
-
-.search-input::placeholder {
-    color: #636362; /* Ganti dengan warna yang diinginkan */
-    opacity: 1; /* Mengatur opasitas jika perlu */
 }
 
 .input-icon i {
@@ -236,12 +231,12 @@ table td button.delete {
     
 }
 
-./* Gaya untuk input saat fokus */
 .input-icon input:focus {
     border-color: #104367; /* Ubah warna border saat fokus */
 }
 
-.horizontalline1 {
+/* Modal container */
+        .horizontalline1 {
         /* Warna teks, tidak berpengaruh pada <hr> */
         border: none; /* Hapus border default */
         border-bottom: 0.5px solid #ccc;
@@ -271,12 +266,17 @@ table td button.delete {
     opacity: 1; /* Mengatur opasitas jika perlu */
 }
 
+
+
+    
+
+
 </style>
 
 <div class="mainbar">
     <div class="container">
         <div class="header">
-            <h2>Laporan Harian Hasil Tempurung Basah</h2>
+            <h2>Card Stock Kopra Basah</h2>
         </div>
 
         <!-- Filter Section -->
@@ -287,7 +287,7 @@ table td button.delete {
                 <option>13 Agustus 2024</option>
             </select>
             <div class="input-icon">
-                <input type="text"  placeholder="Cari Data" class="search-input">
+                <input type="text" placeholder="Cari Data" class="search-input">
                 <i class="fas fa-search"></i> <!-- Ikon pencarian (search icon) -->
             </div>
             <div class="actions"> 
@@ -305,25 +305,25 @@ table td button.delete {
             <table>
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Tanggal</th>
-                        <th>Bruto</th>
-                        <th>Tipe Keranjang</th>
-                        <th>Total Keranjang</th>
-                        <th>Netto</th>
-                        <th>Detail</th>
-                        <th>Aksi</th>
+                        <th style="width: 15px;">No</th>
+                        <th style="width: 50px;">Tanggal</th>
+                        <th style="width: 100px;">Keterangan</th>
+                        <th style="width: 40px;">Begin</th>
+                        <th style="width: 40px;">In</th>
+                        <th style="width: 40px;">Out</th>
+                        <th style="width: 40px;">Remain</th>
+                        <th style="width: 70px;">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
                         <td>12 Agustus 2024</td>
-                        <td>123</td>
-                        <td>Kecil</td>
+                        <td> Hasil Pengeringan </td>
+                        <td>190</td>
                         <td>50</td>
-                        <td>300</td>
-                        <td><button>Hasil Timbangan</button></td>
+                        <td>10</td>
+                        <td>230</td>
                         <td>
                             <button class="edit">Edit</button>
                             <button class="delete">Delete</button>
@@ -356,6 +356,10 @@ table td button.delete {
         </div>
 
 
+    <!-- Modal -->
+   
+    
+    <!-- Script to close the modal -->
     <script>
         document.querySelector('.close').addEventListener('click', function () {
             document.querySelector('.modal').style.display = 'none';

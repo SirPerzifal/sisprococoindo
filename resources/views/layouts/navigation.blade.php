@@ -4,6 +4,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
       <!-- Alpine.js untuk toggle sidebar -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
 
@@ -163,6 +164,16 @@
 .sidebar::-webkit-scrollbar-track {
     background-color: #104367;
 }
+
+.user-folder {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+}
+.no_underline {
+  text-decoration: none;
+}
+
 </style>
 <div class="flex h-screen">
     <!-- Sidebar -->
@@ -181,7 +192,7 @@
         </div>
         <hr class="horizontal-line">
 
-       <div> <button class="dropdown-btn"><i class="fa-solid fa-house"></i></i>Dashboard
+       <div> <button class="dropdown-btn"><i class="fa-solid fa-house"></i></i>Dashboard  
        </div>
           
         </button>
@@ -221,14 +232,25 @@
             <span class="dropdown-arrow">&#9662;</span>
         </button>
         <div class="dropdown-container">
-            <a href="#link1">DKP</a>
+            <a href="{{ route ('card_stock.dkp') }}">DKP</a>
             <a href="#link2">Kelapa Bulat</a>
-            <a href="#link3">Santan</a>
-            <a href="#link4">Air Kelapa</a>
-            <a href="#link5">Pemakaian Kelapa Bulat</a>
+            <a href="{{ route ('card_stock.santan') }}">Santan</a>
+            <a href="{{ route ('card_stock.air_kelapa') }}">Air Kelapa</a>
+            <a href="{{ route ('card_stock.kulit_ari_kering') }}">Kulit Ari Kering</a>
+            <a href="{{ route ('card_stock.minyak_kelapa') }}">Minyak Kelapa</a>
+            <a href="{{ route ('card_stock.kopra_kering') }}">Kopra Kering</a>
+            <a href="{{ route ('card_stock.kopra_basah') }}">Kopra Basah</a>
+            <a href="{{ route ('card_stock.tempurung_basah') }}">Tempurung Basah</a>
             <a href="#link6">DC Putih</a>
             <a href="#link7">DC Yellow-Reject</a>
+            <a href="#link5">Pemakaian Kelapa Bulat</a>
         </div>
+
+        <a class="no_underline" href="{{ route ('data_pegawai') }}">
+            <button class="dropdown-btn">
+                <img class="user-folder" src="https://img.icons8.com/material/24/user-folder.png" alt="user-folder"/>Data Pegawai
+            </button>
+        </a>
     </div>
     </aside>
 
@@ -239,12 +261,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-20">
                     <div class="flex">
-                        <!-- Logo -->
-                      
-                        <!-- Navigation Links -->
-                      
-                            <!-- Tambah link lain jika dibutuhkan -->
-                        
+                   
                     </div>
 
                     <!-- Settings Dropdown -->
